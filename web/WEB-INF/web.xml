@@ -7,9 +7,17 @@
         <servlet-name>MainFormServlet</servlet-name>
         <servlet-class>cus21047.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CategoryFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.CategoryFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryFormServlet</servlet-name>
+        <url-pattern>/categoryForm</url-pattern>
     </servlet-mapping>
 </web-app>
