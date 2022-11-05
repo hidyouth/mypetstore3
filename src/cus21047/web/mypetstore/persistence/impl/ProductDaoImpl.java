@@ -53,7 +53,9 @@ public class ProductDaoImpl implements ProductDao {
         try {
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(getProductString);
+            pStatement.setString(1,productId);
             ResultSet resultSet = pStatement.executeQuery();
+
             if(resultSet.next()){
                 product = new Product();
                 product.setProductId(resultSet.getNString(1));
