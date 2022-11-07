@@ -16,6 +16,7 @@
         <servlet-name>CategoryFormServlet</servlet-name>
         <servlet-class>cus21047.web.mypetstore.web.servlet.CategoryFormServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>CategoryFormServlet</servlet-name>
         <url-pattern>/categoryForm</url-pattern>
@@ -28,5 +29,23 @@
     <servlet-mapping>
         <servlet-name>ProductFormServlet</servlet-name>
         <url-pattern>/productForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.AddItemToCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <url-pattern>/addItemToCart</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.ItemFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <url-pattern>/itemForm</url-pattern>
     </servlet-mapping>
 </web-app>
