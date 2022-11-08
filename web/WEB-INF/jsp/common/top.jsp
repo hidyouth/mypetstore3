@@ -22,12 +22,12 @@
 
     <div id="Menu">
         <div id="MenuContent">
-            <a href="cartForm"> <img align="middle" name="img_cart" src="images/cart.gif" /> </a>
+            <a href="cartForm" methods="post"> <img align="middle" name="img_cart" src="images/cart.gif" /> </a>
             <img align="middle" src="images/separator.gif" />
-            <a href="#">Sign In</a>
-            <a href="#">Sign Out</a>
+            <a href="#">登录</a>
+            <a href="#">登出</a>
             <img align="middle" src="images/separator.gif" />
-            <a href="#">My Account</a>
+            <a href="#">我的账号</a>
             <img align="middle" src="images/separator.gif" />
             <a href="help.html">?</a>
         </div>

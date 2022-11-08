@@ -25,7 +25,7 @@
 
                 <c:if test="${sessionScope.cart.numberOfItems == 0}">
                     <tr>
-                        <td colspan="8"><b>Your cart is empty.</b></td>
+                        <td colspan="8"><b>购物车是空的。</b></td>
                     </tr>
                 </c:if>
 
@@ -47,7 +47,7 @@
                         <td><fmt:formatNumber value="${cartItem.total}"
                                               pattern="$#,##0.00" /></td>
                         <td>
-                            <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
+                            <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">remove</a>
                         </td>
                     </tr>
                 </c:forEach>

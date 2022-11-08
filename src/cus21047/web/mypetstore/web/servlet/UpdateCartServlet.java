@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Iterator;
 
-import static org.hsqldb.HsqlDateTime.e;
 
 public class UpdateCartServlet extends HttpServlet {
 
