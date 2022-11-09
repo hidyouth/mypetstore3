@@ -6,16 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class MainFormServlet extends HttpServlet {
-    private static final String MAIN_FORM = "/WEB-INF/jsp/catalog/main.jsp";
-
+public class LoginFormServlet extends HttpServlet {
+    private static final String LOGIN_FORM = "/WEB-INF/jsp/account/login.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(MAIN_FORM).forward(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req,resp);
+        req.getRequestDispatcher(LOGIN_FORM).forward(req,resp);
     }
 }
