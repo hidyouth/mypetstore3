@@ -20,11 +20,20 @@
                     <div>
                         <a href="itemForm?itemId=${cart.itemId}">${cart.itemId}</a>
                         <labl>${cart.productId}</labl>
-                        <label>num:${cart.num}</label>
+                            num:${cart.num} Update num:
+                        <form action="updateCart" method="post">
+                            <input type="hidden" name="itemId" value="${cart.itemId}">
+                        <input type="text" name="num" value="${cart.num}"/>
+                        <button type="submit">Update Cart</button>
+                    </form>
+
                         <label>$: ${cart.total_cost}</label>
                         <a href="removeCartItem?workingItemId=${cart.itemId}" class="Button">remove</a>
+                        <a href="newOrderForm?itemId=${cart.itemId}" class="Button">place an order</a>
+
                     </div>
                 </c:forEach>
+
             </c:if>
         </c:if>
 

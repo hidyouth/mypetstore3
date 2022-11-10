@@ -33,6 +33,10 @@ public class CartService  {
     public void addCart(String itemId, String username, String productId, BigDecimal listprice){
        cartDao.InsterToCart(itemId,username,productId,listprice);
     }
+    public void DeleteCart(String itemId, String username){
+       cartDao.DeleteCart(itemId,username);
+    }
+
 
 
 }

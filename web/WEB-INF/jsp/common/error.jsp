@@ -1,5 +1,5 @@
 <%@ include file="../common/top.jsp"%>
 
-<c:out value="s{sessionScrope.errorMsg}"></c:out>
+ <p value="${sessionScrope.errorMsg}"></p>
 
 <%@ include file="../common/bottom.jsp"%>

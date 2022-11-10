@@ -3,8 +3,10 @@ package cus21047.web.mypetstore.persistence.impl;
 
 import cus21047.web.mypetstore.domain.Cart;
 import cus21047.web.mypetstore.domain.Cart;
+import cus21047.web.mypetstore.domain.Item;
 import cus21047.web.mypetstore.persistence.CartDao;
 import cus21047.web.mypetstore.persistence.DBUtil;
+import cus21047.web.mypetstore.persistence.ItemDao;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -20,13 +22,17 @@ public class CartDaoImpl implements CartDao {
 
     private static final String AddCart = "insert INTO cart(username,itemId,productId,num,total_cost) VALUES(?,?,?,?,?)" ;
 
+    private static final String DeleteCart = "DELETE FROM cart WHERE username= ? and itemId= ?";
+
+    private static final String UpdateCart = "UPDATE cart SET num = ? , total_cost = ? WHERE username=? and itemId= ?";
+
 
     //这个函数是寻找购物车中所有商品的
     @Override
     public  List<Cart> getCartList(String username) {
         List<Cart> cartList = new ArrayList<>();
         try {
-            Connection connection = DBUtil.getConnectionCartAndOrder();
+            Connection connection = DBUtil.getConnection();
 
             PreparedStatement pStatement = connection.prepareStatement(GetCartList);
             pStatement.setString(1,username);
@@ -55,8 +61,7 @@ public class CartDaoImpl implements CartDao {
     public Cart getCart(String itemId, String username) {
         Cart cart = null;
         try {
-            Connection connection = DBUtil.getConnectionCartAndOrder();
-
+            Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(GetCart);
             pStatement.setString(1, username);
             pStatement.setString(2, itemId);
@@ -81,7 +86,7 @@ public class CartDaoImpl implements CartDao {
     @Override
     public void InsterToCart(String itemId, String username, String productId, BigDecimal listprice) {
         try{
-            Connection connection = DBUtil.getConnectionCartAndOrder();
+            Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(AddCart);
             pStatement.setString(1,username);
             pStatement.setString(2,itemId);
@@ -98,11 +103,53 @@ public class CartDaoImpl implements CartDao {
 
     }
 
+    @Override
+    public void DeleteCart(String itemId, String username) {
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.prepareStatement(DeleteCart);
+           pStatement.setString(1,username);
+           pStatement.setString(2,itemId);
+           pStatement.execute();
+            DBUtil.closeStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void UpdateCart(String itemId, String username, int num) {
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.prepareStatement(UpdateCart);
+            pStatement.setInt(1,num);
+            pStatement.setString(3,username);
+            pStatement.setString(4,itemId);
+
+
+            ItemDao itemDao =new ItemDaoImpl();
+            Item item = itemDao.getItem(itemId);
+            BigDecimal listprice = item.getListPrice();
+            for(int i=0;i<num-1;i++){
+                BigDecimal listprice2= listprice;
+               BigDecimal listprice1=listprice.add(listprice2);
+               listprice=listprice1;
+            }
+            pStatement.setBigDecimal(2,listprice);
+            pStatement.executeUpdate();
+
+
+            DBUtil.closeStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         CartDao cartDao = new CartDaoImpl();
-        List<Cart> cartList = new ArrayList<>();
-        cartList= cartDao.getCartList("j2ee");
-        Cart cart = cartDao.getCart("EST-18","j2ee");
+        cartDao.UpdateCart("EST-18","j2ee",2);
         System.out.println("success");
     }
 

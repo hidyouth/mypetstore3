@@ -41,7 +41,7 @@
     </servlet>
     <servlet>
         <servlet-name>RemoveCartItemServlet</servlet-name>
-        <servlet-class>cus21047.web.mypetstore.web.servlet.CartFormServlet</servlet-class>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.RemoveCartItemServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CartFormServlet</servlet-name>
@@ -108,6 +108,15 @@
     <servlet-mapping>
         <servlet-name>VerificationServlet</servlet-name>
         <url-pattern>/Verification</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.NewOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <url-pattern>/NewOrder</url-pattern>
     </servlet-mapping>
 
 

@@ -31,17 +31,17 @@
                 欢迎您，${sessionScope.loginAccount.username}
             </div>
         </c:if>
-        <div id="MenuContent">
-            <a href="cartForm" methods="post"> <img align="middle" name="img_cart" src="images/cart.gif" /> </a>
-            <img align="middle" src="images/separator.gif" />
-            <a href="#">登录</a>
-            <a href="#">登出</a>
-            <img align="middle" src="images/separator.gif" />
-            <a href="#">我的账号</a>
-            <img align="middle" src="images/separator.gif" />
-            <a href="help.html">?</a>
-        </div>
-    </div>
+<%--        <div id="MenuContent">--%>
+<%--            <a href="cartForm" methods="post"> <img align="middle" name="img_cart" src="images/cart.gif" /> </a>--%>
+<%--            <img align="middle" src="images/separator.gif" />--%>
+<%--            <a href="#">登录</a>--%>
+<%--            <a href="#">登出</a>--%>
+<%--            <img align="middle" src="images/separator.gif" />--%>
+<%--            <a href="#">我的账号</a>--%>
+<%--            <img align="middle" src="images/separator.gif" />--%>
+<%--            <a href="help.html">?</a>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
     <div id="Search">
         <div id="SearchContent">

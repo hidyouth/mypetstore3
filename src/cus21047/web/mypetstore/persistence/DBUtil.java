@@ -20,16 +20,7 @@ public class DBUtil {
         }
         return connection;
     }
-    public static Connection getConnectionCartAndOrder(){
-        Connection connection = null;
-        try {
-            Class.forName(DRIVER);
-            connection = DriverManager.getConnection(URL1,USERNAME,PASSWORD);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return connection;
-    }
+
 
     public static void closeConnection(Connection connection){
         if(connection != null){

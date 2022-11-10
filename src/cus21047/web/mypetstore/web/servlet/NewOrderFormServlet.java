@@ -1,6 +1,8 @@
 package cus21047.web.mypetstore.web.servlet;
 
 import cus21047.web.mypetstore.domain.Account;
+import cus21047.web.mypetstore.domain.Cart;
+import cus21047.web.mypetstore.service.CartService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +14,7 @@ import java.io.IOException;
 public class NewOrderFormServlet extends HttpServlet {
 
     private static final String NEW_OEDER_FORM = "/WEB-INF/jsp/order/neworder.jsp";
+    CartService cartService =new CartService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -19,6 +22,11 @@ public class NewOrderFormServlet extends HttpServlet {
         if(loginAccount == null){
             resp.sendRedirect("loginForm");
         }else{
+            String itemId = req.getParameter("itemId");
+            String username = loginAccount.getUsername();
+            Cart cart = cartService.getCart(itemId,username);
+            session.setAttribute("cart",cart);
+
             req.getRequestDispatcher(NEW_OEDER_FORM).forward(req,resp);
         }
     }

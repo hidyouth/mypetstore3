@@ -13,4 +13,7 @@ public interface CartDao {
 
     void InsterToCart(String itemId, String username, String productId, BigDecimal lastprice);
 
+    void DeleteCart(String itemId,String username);
+
+    void UpdateCart(String itemId,String username,int num);
 }
