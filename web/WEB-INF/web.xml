@@ -45,7 +45,7 @@
     </servlet>
     <servlet>
         <servlet-name>CartFormServlet</servlet-name>
-        <servlet-class>cus21047.web.mypetstore.web.servlet.UpdateCartServlet</servlet-class>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.CartFormServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
