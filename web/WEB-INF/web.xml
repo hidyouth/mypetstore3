@@ -100,4 +100,15 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VerificationServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.VerificationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerificationServlet</servlet-name>
+        <url-pattern>/Verification</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

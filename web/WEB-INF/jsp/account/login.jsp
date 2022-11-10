@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 崔昊森
-  Date: 2022/11/9/0009
-  Time: 15:51
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="cus21047.web.mypetstore.web.servlet.LoginServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -21,7 +15,7 @@
     <form action="Login" method="post">
 
         <c:if test="${requestScope.loginMsg != null}">
-            <p><font color="#4169e1">${requestScope.loginMsg}</font></p>
+            <p><font color=white>${requestScope.loginMsg}</font></p>
         </c:if>
         <div class="input-box">
             <label>账号</label>
@@ -30,6 +24,16 @@
         <div class="input-box">
             <label>密码</label>
             <input type="password" name="password"/>
+        </div>
+        <div class="input-box">
+            <label>验证码</label>
+            <input type="text" name="VerificationCode"/>
+            <div class="verification">
+                <input type="text" name="Verification" value="${requestScope.VerificationCode}"/>
+                <a href="Verification">换一个</a>
+
+            </div>
+
         </div>
         <div>
             <div class="btn-box">

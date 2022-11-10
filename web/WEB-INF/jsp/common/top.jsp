@@ -21,6 +21,16 @@
     </div>
 
     <div id="Menu">
+        <c:if test="${sessionScope.loginAccount ==null}">
+            <div id="MenuContent">
+                您还没有登录，请<a href="loginForm">登录</a> | 没有账号？点这里<a href="#">注册</a>
+            </div>
+        </c:if>
+        <c:if test="${sessionScope.loginAccount != null}">
+            <div id="MenuContent">
+                欢迎您，${sessionScope.loginAccount.username}
+            </div>
+        </c:if>
         <div id="MenuContent">
             <a href="cartForm" methods="post"> <img align="middle" name="img_cart" src="images/cart.gif" /> </a>
             <img align="middle" src="images/separator.gif" />

@@ -5,6 +5,8 @@ import java.sql.*;
 public class DBUtil {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/mypetstore";
+
+    private static final String URL1= "jdbc:mysql://127.0.0.1:3306/cartandoeder";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1198451301";
 
@@ -13,6 +15,16 @@ public class DBUtil {
         try {
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return connection;
+    }
+    public static Connection getConnectionCartAndOrder(){
+        Connection connection = null;
+        try {
+            Class.forName(DRIVER);
+            connection = DriverManager.getConnection(URL1,USERNAME,PASSWORD);
         } catch (Exception e){
             e.printStackTrace();
         }

@@ -13,15 +13,19 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     private static final String LOGIN_FORM = "/WEB-INF/jsp/account/login.jsp";
-    private  String username;
-    private  String password;
-
+    private String username;
+    private String password;
+    private String VerificationCode;
+    private String Verification;
     private String loginMsg;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");
+        this.VerificationCode = req.getParameter("VerificationCode");
+        this.Verification = req.getParameter("Verification");
+
         //校验用户输入的正确性
         if(!validate()){
             req.setAttribute("loginMsg",loginMsg);
@@ -31,17 +35,24 @@ public class LoginServlet extends HttpServlet {
             Account loginAccount = accountService.getAccount(username,password);
             if(loginAccount == null){
                 this.loginMsg = "用户名或密码错误";
+                req.setAttribute("loginMsg",loginMsg);
                 req.getRequestDispatcher(LOGIN_FORM).forward(req,resp);
             }else{
-                HttpSession session = req.getSession();
-                session.setAttribute("loginAccount",loginAccount);
-                resp.sendRedirect("mainForm");
+                if(this.VerificationCode.equals(this.Verification)){
+                    HttpSession session = req.getSession();
+                    session.setAttribute("loginAccount",loginAccount);
+                    resp.sendRedirect("mainForm");
+                }else{
+                    this.loginMsg = "验证码错误";
+                    req.setAttribute("loginMsg",loginMsg);
+                    req.getRequestDispatcher(LOGIN_FORM).forward(req,resp);
+                }
+
                 //在post方法中使用send，也会用post请求
 
             }
 
         }
-
 
     }
     private boolean validate(){
@@ -53,6 +64,13 @@ public class LoginServlet extends HttpServlet {
             this.loginMsg = "密码不能为空";
             return false;
         }
+        if(this.VerificationCode == null ||this.VerificationCode.equals("")){
+            this.loginMsg = "验证码不能为空";
+            return false;
+        }
         return true;
     }
+
+
 }
+
