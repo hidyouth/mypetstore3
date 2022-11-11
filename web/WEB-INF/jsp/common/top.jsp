@@ -2,35 +2,51 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<html >
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-    <title>MyPetStore</title>
-    <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen" />
-
+    <meta charset="UTF-8">
+    <title>PetStore</title>
+    <link rel="stylesheet" href="css/petstore.css"/>
 </head>
-
 <body>
-<div id="Header">
-
-    <div id="Logo">
-        <div id="LogoContent">
-            <a href="mainForm"> <img src="images/logo-topbar.gif" /> </a>
-        </div>
+<div class="top">
+    <div class="top-returnmain">
+        <a href="mainForm">PetStore</a>
     </div>
-
-    <div id="Menu">
+    <div class="top-account">
         <c:if test="${sessionScope.loginAccount ==null}">
-            <div id="MenuContent">
-                您还没有登录，请<a href="loginForm">登录</a> | 没有账号？点这里<a href="#">注册</a>
+            <div>
+                <a href="loginForm">Login</a>
+            </div>
+            <div>
+                <a href="">Register</a>
             </div>
         </c:if>
         <c:if test="${sessionScope.loginAccount != null}">
-            <div id="MenuContent">
-                欢迎您，${sessionScope.loginAccount.username}
+            <div>
+                Welcome,${sessionScope.loginAccount.username}
+            </div>
+            <div>
+                <a href="cartForm">Shopping Cart</a>
+            </div>
+            <div>
+                <a href="">MyAccount</a>
+            </div>
+            <div>
+                <a href="">Login Out</a>
             </div>
         </c:if>
+    </div>
+</div>
+
+<div class="middle">
+
+
+
+
+
 <%--        <div id="MenuContent">--%>
 <%--            <a href="cartForm" methods="post"> <img align="middle" name="img_cart" src="images/cart.gif" /> </a>--%>
 <%--            <img align="middle" src="images/separator.gif" />--%>
@@ -43,28 +59,5 @@
 <%--        </div>--%>
 <%--    </div>--%>
 
-    <div id="Search">
-        <div id="SearchContent">
-            <form action="" method="post">
-                <input type="text" name="keyword" size="14">
-                <input type="submit" name="searchProducts" value="Search">
-            </form>
-        </div>
-    </div>
 
-    <div id="QuickLinks">
-        <a href="categoryForm?categoryId=FISH"> <img src="images/sm_fish.gif" /> </a>
-        <img src="images/separator.gif" />
-        <a href="categoryForm?categoryId=DOGS"> <img src="images/sm_dogs.gif" /> </a>
-        <img src="images/separator.gif" />
-        <a href="categoryForm?categoryId=REPTILES"> <img src="images/sm_reptiles.gif" /> </a>
-        <img src="images/separator.gif" />
-        <a href="categoryForm?categoryId=CATS"> <img src="images/sm_cats.gif" /> </a>
-         <img src="images/separator.gif" />
-        <a href="categoryForm?categoryId=BIRDS"> <img src="images/sm_birds.gif" /> </a>
-    </div>
-
-</div>
-
-<div id="Content"></div>
 

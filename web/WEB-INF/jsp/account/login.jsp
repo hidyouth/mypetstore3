@@ -9,7 +9,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="css/login.css"/>
 </head>
-<body b>
+<body >
 <div class="box" >
     <h2>Login</h2>
     <form action="Login" method="post">

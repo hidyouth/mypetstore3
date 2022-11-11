@@ -1,12 +1,10 @@
 <%@ include file="../common/top.jsp"%>
 
-<div id="BackLink">
-    <a href="mainForm">Return to Main Menu</a>
-    </div>
 
-<div id="Catalog">
 
-    <div id="Cart">
+
+
+    <div class="cart-box">
         <c:if test="${sessionScope.loginAccount ==null}">
             你还没有<a href="LoginForm">登录</a>.
         </c:if>
@@ -17,22 +15,24 @@
             </c:if>
             <c:if test="${sessionScope.cartList != null}">
                 <c:forEach var="cart" items="${sessionScope.cartList}">
-                    <div>
+                    <div class="Cart">
                         <a href="itemForm?itemId=${cart.itemId}">${cart.itemId}</a>
-                        <labl>${cart.productId}</labl>
+                        <label>${cart.productId}</label>
                             num:${cart.num} Update num:
                         <form action="updateCart" method="post">
                             <input type="hidden" name="itemId" value="${cart.itemId}">
-                        <input type="text" name="num" value="${cart.num}"/>
-                        <button type="submit">Update Cart</button>
-                    </form>
+                            <input type="text" name="num" value="${cart.num}"/>
+                            <button type="submit" class="returnANDsubmit">Update Cart</button>
+                        </form>
 
                         <label>$: ${cart.total_cost}</label>
-                        <a href="removeCartItem?workingItemId=${cart.itemId}" class="Button">remove</a>
-                        <a href="newOrderForm?itemId=${cart.itemId}" class="Button">place an order</a>
+                        <a href="removeCartItem?workingItemId=${cart.itemId}" ><button class="remove">Remove</button></a>
+                        <a href="newOrderForm?itemId=${cart.itemId}" ><button class="returnANDsubmit">Place an order</button></a>
 
                     </div>
                 </c:forEach>
+                <a href="mainForm">
+                    <button class="returnANDsubmit">Return to Main Menu</button></a>
 
             </c:if>
         </c:if>
@@ -127,7 +127,7 @@
         </c:if>
     </div>--%>
 
-    <div id="Separator">&nbsp;</div>
-</div>
+
+
 
 <%@ include file="../common/bottom.jsp"%>
