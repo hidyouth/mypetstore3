@@ -39,9 +39,10 @@ public class AddItemToCartServlet extends HttpServlet {
             Item item = itemDao.getItem(workingItemId);
             String productId = item.getProduct().getProductId();
             BigDecimal listprice = item.getListPrice();
+            BigDecimal total_cost = item.getListPrice();
             //如果购物车中没有这个商品，就加到购物车中
             if(cart == null){
-                cartService.addCart(workingItemId,username,productId,listprice);
+                cartService.addCart(workingItemId,username,productId,listprice,total_cost);
                 resp.sendRedirect("cartForm");
             }else{
                 resp.sendRedirect("cartForm");

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/login2.css"/>
 </head>
 <body >
 <div class="box" >
@@ -31,13 +31,12 @@
             <div class="verification">
                 <input type="text" name="Verification" value="${requestScope.VerificationCode}"/>
                 <a href="Verification">换一个</a>
-
             </div>
 
         </div>
         <div>
             <div class="btn-box">
-                <a href="#">去注册>></a>
+                <a href="RegisterForm">去注册>></a>
                 <div>
                     <button type="submit">登录</button>
                 </div>

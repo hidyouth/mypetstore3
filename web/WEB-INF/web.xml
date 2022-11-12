@@ -119,5 +119,41 @@
         <url-pattern>/NewOrder</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>OrderFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.OrderFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderFormServlet</servlet-name>
+        <url-pattern>/OrderForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.RegisterFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <url-pattern>/RegisterForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveOrderServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.RemoveOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveOrderServlet</servlet-name>
+        <url-pattern>/RemoveOrder</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

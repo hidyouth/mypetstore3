@@ -15,4 +15,13 @@ public class AccountService {
         account.setPassword(password);
         return accountDao.getAccountByUsernameAndPassword(account);
     }
+    public Account getAccountByUsername(String username){
+        return accountDao.getAccountByUsername(username);
+    }
+    public void insterAccount(Account account){
+        accountDao.insertAccount(account);
+    }
+    public void insterSingon(Account account){
+        accountDao.insertSignon(account);
+    }
 }

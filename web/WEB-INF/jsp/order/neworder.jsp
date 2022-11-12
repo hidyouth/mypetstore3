@@ -1,35 +1,35 @@
 <%@ include file="../common/top.jsp" %>
 
 
-<div id="Catalog">
-
-  <div>
+  <div class="newOrder">
     <form action="NewOrder" method="post">
-      <div>Order</div>
+      <h2>Order</h2>
       <div>
-        ItemId:<input type="text" name="itemId" readonly="readonly" value="${sessionScope.cart.itemId}">
+        <label>ItemId:</label>
+        <input type="text" name="itemId" readonly="readonly" value="${sessionScope.itemId}">
       </div>
       <div>
-        Adress:<input type="text" name="adress" readonly="readonly" value="${sessionScope.loginAccount.address1}">
+        <label>Adress:</label>
+        <input type="text" name="adress" readonly="readonly" value="${sessionScope.loginAccount.address1}">
       </div>
       <div>
-        ItemNum:<input type="text" name="num" value="${sessionScope.cart.num}">
+        <label>ItemNum:</label>
+        <input type="text" name="num" value="${sessionScope.num}">
       </div>
       <div>
-        TotalCost:<input type="text" name="totalcost" readonly="readonly" value="${sessionScope.cart.total_cost}">
+        <label>ListPrice:</label>
+        <input type="text" name="listprice" readonly="readonly" value="${sessionScope.listprice}">
       </div>
-      <div>
-        <button type="submit">Sumbit</button>
+      <div class="btn">
+        <button class="returnANDsubmit" type="submit">Sumbit</button>
       </div>
     </form>
-
-
 
 
     </div>
 
 
 
-</div>
+
 
 <%@ include file="../common/bottom.jsp" %>

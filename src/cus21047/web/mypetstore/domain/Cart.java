@@ -14,6 +14,15 @@ public class Cart implements Serializable {
 
     private int num;
     private BigDecimal total_cost;
+    private BigDecimal listprice;
+
+    public BigDecimal getListprice() {
+        return listprice;
+    }
+
+    public void setListprice(BigDecimal listprice) {
+        this.listprice = listprice;
+    }
 
     public String getUsername() {
         return username;

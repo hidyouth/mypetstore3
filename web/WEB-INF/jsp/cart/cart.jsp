@@ -18,7 +18,8 @@
                     <div class="Cart">
                         <a href="itemForm?itemId=${cart.itemId}">${cart.itemId}</a>
                         <label>${cart.productId}</label>
-                            num:${cart.num} Update num:
+                        <label>num:${cart.num}</label>
+                        Update num:
                         <form action="updateCart" method="post">
                             <input type="hidden" name="itemId" value="${cart.itemId}">
                             <input type="text" name="num" value="${cart.num}"/>
@@ -32,7 +33,8 @@
                     </div>
                 </c:forEach>
                 <a href="mainForm">
-                    <button class="returnANDsubmit">Return to Main Menu</button></a>
+                    <button class="returnANDsubmit">Return to Main Menu</button>
+                </a>
 
             </c:if>
         </c:if>

@@ -14,19 +14,57 @@ public class AccountDaoImpl implements AccountDao {
                     "SIGNON.USERNAME," +
                     "ACCOUNT.EMAIL,ACCOUNT.FIRSTNAME,ACCOUNT.LASTNAME,ACCOUNT.STATUS," +
                     "ACCOUNT.ADDR1 AS address1,ACCOUNT.ADDR2 AS address2," +
-                    "ACCOUNT.CITY,ACCOUNT.STATE,ACCOUNT.ZIP,ACCOUNT.COUNTRY,ACCOUNT.PHONE," +
-                    "PROFILE.LANGPREF AS languagePreference,PROFILE.FAVCATEGORY AS favouriteCategoryId," +
-                    "PROFILE.MYLISTOPT AS listOption,PROFILE.BANNEROPT AS bannerOption," +
-                    "BANNERDATA.BANNERNAME " +
-                    "FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA " +
+                    "ACCOUNT.CITY,ACCOUNT.STATE,ACCOUNT.ZIP,ACCOUNT.COUNTRY,ACCOUNT.PHONE " +
+                    "FROM ACCOUNT,SIGNON " +
                     "WHERE ACCOUNT.USERID = ? AND SIGNON.PASSWORD = ? " +
-                    "AND SIGNON.USERNAME = ACCOUNT.USERID " +
-                    "AND PROFILE.USERID = ACCOUNT.USERID " +
-                    "AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
+                    "AND SIGNON.USERNAME = ACCOUNT.USERID ";
+    private static final String GET_ACCOUNT_BY_USERNAME =
+            "SELECT "+
+                    "SIGNON.USERNAME,"+
+                    "ACCOUNT.EMAIL,"+
+                    "ACCOUNT.FIRSTNAME,"+
+                    "ACCOUNT.LASTNAME,"+
+                    "ACCOUNT.STATUS,"+
+                    "ACCOUNT.ADDR1 AS address1,"+
+                    "ACCOUNT.ADDR2 AS address2,"+
+                    "ACCOUNT.CITY,"+
+                    "ACCOUNT.STATE,"+
+                    "ACCOUNT.ZIP,"+
+                    "ACCOUNT.COUNTRY,"+
+                    "ACCOUNT.PHONE,"+
+                    "FROM ACCOUNT, SIGNON "+
+                    "WHERE ACCOUNT.USERID = ?"+
+                    "AND SIGNON.USERNAME = ACCOUNT.USERID ";
+    private static final String INSTER_ACCOUNT =
+            "INSERT INTO ACCOUNT" +
+                    "(USERID,EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY,STATE, ZIP, COUNTRY, PHONE)" +
+                    " VALUES" +
+                    "(?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String INSTER_SINGON =
+            "INSERT INTO SIGNON (PASSWORD,USERNAME)" +
+                    " VALUES (?, ?)";
+
 
     @Override
     public Account getAccountByUsername(String username) {
-        return null;
+        Account accountResult = null;
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.
+                    prepareStatement(GET_ACCOUNT_BY_USERNAME);
+            pStatement.setString(1,username);
+
+            ResultSet resultSet = pStatement.executeQuery();
+            if(resultSet.next()){
+                accountResult = this.resultSetToAccount(resultSet);
+            }
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return accountResult;
     }
 
     @Override
@@ -66,17 +104,38 @@ public class AccountDaoImpl implements AccountDao {
         account.setZip(resultSet.getString("zip"));
         account.setCountry(resultSet.getString("country"));
         account.setPhone(resultSet.getString("phone"));
-        account.setFavouriteCategoryId(resultSet.getString("favouriteCategoryId"));
-        account.setLanguagePreference(resultSet.getString("languagePreference"));
-        account.setListOption(resultSet.getInt("listOption") == 1);
-        account.setBannerOption(resultSet.getInt("bannerOption") == 1);
-        account.setBannerName(resultSet.getString("bannerName"));
+//        account.setFavouriteCategoryId(resultSet.getString("favouriteCategoryId"));
+//        account.setLanguagePreference(resultSet.getString("languagePreference"));
+//        account.setListOption(resultSet.getInt("listOption") == 1);
+//        account.setBannerOption(resultSet.getInt("bannerOption") == 1);
+//        account.setBannerName(resultSet.getString("bannerName"));
         return account;
     }
 
     @Override
     public void insertAccount(Account account) {
-
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.
+                    prepareStatement(INSTER_ACCOUNT);
+            pStatement.setString(1,account.getUsername());
+            pStatement.setString(2,account.getEmail());
+            pStatement.setString(3,account.getFirstName());
+            pStatement.setString(4,account.getLastName());
+            pStatement.setString(5,account.getStatus());
+            pStatement.setString(6,account.getAddress1());
+            pStatement.setString(7,account.getAddress2());
+            pStatement.setString(8,account.getCity());
+            pStatement.setString(9,account.getState());
+            pStatement.setString(10,account.getZip());
+            pStatement.setString(11,account.getCountry());
+            pStatement.setString(12,account.getPhone());
+            pStatement.execute();
+            DBUtil.closePreparedStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -86,7 +145,18 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void insertSignon(Account account) {
-
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.
+                    prepareStatement(INSTER_SINGON);
+            pStatement.setString(1,account.getPassword());
+            pStatement.setString(2,account.getUsername());
+            pStatement.execute();
+            DBUtil.closePreparedStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -112,4 +182,25 @@ public class AccountDaoImpl implements AccountDao {
 //        Account result = accountDao.getAccountByUsernameAndPassword(account);
 //        System.out.println("success");
 //    }
+public static void main(String[] args) {
+    AccountDao accountDao = new AccountDaoImpl();
+    Account account = new Account();
+    account.setPassword("j2ee");
+    account.setUsername("jee");
+
+    account.setEmail("1");
+    account.setFirstName("1");
+    account.setLastName("1");
+    account.setStatus("1");
+    account.setAddress1("1");
+    account.setAddress2("1");
+    account.setCity("1");
+    account.setState("1");
+    account.setZip("1");
+    account.setCountry("1");
+    account.setPhone("1");
+
+    accountDao.insertAccount(account);
+    System.out.println();
+}
 }

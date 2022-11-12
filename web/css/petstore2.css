@@ -277,9 +277,57 @@ button.remove:hover{
     box-shadow: 1px 1px 5px #000;
 }
 .middle .cart-box .Cart >a{
-    padding-left: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
     padding-right: 10px;
+
 }
 .middle .cart-box .Cart >label{
+    padding: 10px;
+}
 
+.middle .newOrder{
+    border-radius :20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: 500px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    background-color: aliceblue;
+    box-shadow: 1px 1px 5px #000;
+}
+.middle .newOrder >h2{
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.middle .newOrder >form >div >label{
+    font-weight: 700;
+}
+.middle .newOrder >form >div {
+    margin: 10px;
+}
+.middle .newOrder >form >div >input{
+    color: #222222;
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.3);
+    border:1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    outline: none;
+
+}
+.middle .newOrder >form >div {
+    font-weight: 700;
+}
+.middle .newOrder >form .btn {
+    margin: 0 auto;
+    position: relative;
 }

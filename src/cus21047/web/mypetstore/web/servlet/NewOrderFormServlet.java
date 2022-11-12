@@ -2,6 +2,9 @@ package cus21047.web.mypetstore.web.servlet;
 
 import cus21047.web.mypetstore.domain.Account;
 import cus21047.web.mypetstore.domain.Cart;
+import cus21047.web.mypetstore.domain.Item;
+import cus21047.web.mypetstore.persistence.ItemDao;
+import cus21047.web.mypetstore.persistence.impl.ItemDaoImpl;
 import cus21047.web.mypetstore.service.CartService;
 
 import javax.servlet.ServletException;
@@ -25,7 +28,19 @@ public class NewOrderFormServlet extends HttpServlet {
             String itemId = req.getParameter("itemId");
             String username = loginAccount.getUsername();
             Cart cart = cartService.getCart(itemId,username);
-            session.setAttribute("cart",cart);
+            if(cart == null){
+                ItemDao itemDao = new ItemDaoImpl();
+                Item item = itemDao.getItem(itemId);
+                session.setAttribute("itemId",item.getItemId());
+                session.setAttribute("num",1);
+                session.setAttribute("listprice",item.getListPrice());
+
+            }else {
+                session.setAttribute("itemId",cart.getItemId());
+                session.setAttribute("num",cart.getNum());
+                session.setAttribute("listprice",cart.getTotal_cost());
+            }
+
 
             req.getRequestDispatcher(NEW_OEDER_FORM).forward(req,resp);
         }

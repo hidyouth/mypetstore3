@@ -20,7 +20,7 @@ public class CartDaoImpl implements CartDao {
 
     private static final String GetCart = "SELECT * FROM cart WHERE username=? and itemId= ?";
 
-    private static final String AddCart = "insert INTO cart(username,itemId,productId,num,total_cost) VALUES(?,?,?,?,?)" ;
+    private static final String AddCart = "insert INTO cart(username,itemId,productId,num,listprice,total_cost) VALUES(?,?,?,?,?,?)" ;
 
     private static final String DeleteCart = "DELETE FROM cart WHERE username= ? and itemId= ?";
 
@@ -43,7 +43,8 @@ public class CartDaoImpl implements CartDao {
                 cart.setItemId(resultSet.getString(2));
                 cart.setProductId(resultSet.getString(3));
                 cart.setNum(resultSet.getInt(4));
-                cart.setTotal_cost(resultSet.getBigDecimal(5));
+                cart.setListprice(resultSet.getBigDecimal(5));
+                cart.setTotal_cost(resultSet.getBigDecimal(6));
                 cartList.add(cart);
 
             }
@@ -84,7 +85,7 @@ public class CartDaoImpl implements CartDao {
     }
 
     @Override
-    public void InsterToCart(String itemId, String username, String productId, BigDecimal listprice) {
+    public void InsterToCart(String itemId, String username, String productId, BigDecimal listprice,BigDecimal totalcost) {
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(AddCart);
@@ -93,6 +94,7 @@ public class CartDaoImpl implements CartDao {
             pStatement.setString(3,productId);
             pStatement.setInt(4,1);
             pStatement.setBigDecimal(5,listprice);
+            pStatement.setBigDecimal(6,listprice);
             pStatement.execute();
 
             DBUtil.closeStatement(pStatement);
@@ -131,9 +133,10 @@ public class CartDaoImpl implements CartDao {
             ItemDao itemDao =new ItemDaoImpl();
             Item item = itemDao.getItem(itemId);
             BigDecimal listprice = item.getListPrice();
+            BigDecimal li= listprice;
             for(int i=0;i<num-1;i++){
-                BigDecimal listprice2= listprice;
-               BigDecimal listprice1=listprice.add(listprice2);
+
+               BigDecimal listprice1=listprice.add(li);
                listprice=listprice1;
             }
             pStatement.setBigDecimal(2,listprice);
