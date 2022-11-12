@@ -6,14 +6,12 @@
         <button class="remove">Clear Records</button>
     </a>
 
-
     <c:forEach items="${sessionScope.recordList}" var="user">
-    <div >
+    <div class="word" >
         <a href="itemForm?itemId=${user.records}">${user.records}
     </div>
-    <div style="border:5px solid #CCC"></div>
+    <div style="border:2px solid black"></div>
     </c:forEach>
-
 
 </div>
 
