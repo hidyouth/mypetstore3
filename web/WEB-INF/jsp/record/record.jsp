@@ -8,11 +8,11 @@
 
     <c:forEach items="${sessionScope.recordList}" var="user">
     <div class="word" >
-        <a href="itemForm?itemId=${user.records}">${user.records}
+        <a href="itemForm?itemId=${user.records}">${user.records}></a>
     </div>
+
     <div style="border:2px solid black"></div>
     </c:forEach>
-
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

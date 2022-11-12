@@ -165,5 +165,14 @@
         <url-pattern>/RemoveOrder</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ClearRecordServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.ClearRecordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClearRecordServlet</servlet-name>
+        <url-pattern>/clearRecord</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
