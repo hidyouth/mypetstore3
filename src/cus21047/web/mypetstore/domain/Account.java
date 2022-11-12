@@ -19,12 +19,24 @@ public class Account implements Serializable {
     private String state;
     private String zip;
     private String country;
+
+
+
     private String phone;
+    private String record;
     private String favouriteCategoryId;
     private String languagePreference;
     private boolean listOption;
     private boolean bannerOption;
     private String bannerName;
+
+    public String getRecord() {
+        return record;
+    }
+
+    public void setRecord(String record) {
+        this.record = record;
+    }
 
     public String getUsername() {
         return username;

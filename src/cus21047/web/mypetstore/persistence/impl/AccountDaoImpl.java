@@ -1,28 +1,32 @@
 package cus21047.web.mypetstore.persistence.impl;
 
 import cus21047.web.mypetstore.domain.Account;
+import cus21047.web.mypetstore.domain.Item;
 import cus21047.web.mypetstore.persistence.AccountDao;
 import cus21047.web.mypetstore.persistence.DBUtil;
+import cus21047.web.mypetstore.persistence.ItemDao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class AccountDaoImpl implements AccountDao {
-    private static final String GET_ACCOUNT_BY_USERNAME_AND_PASSWORD=
-            "SELECT " +
-                    "SIGNON.USERNAME," +
-                    "ACCOUNT.EMAIL,ACCOUNT.FIRSTNAME,ACCOUNT.LASTNAME,ACCOUNT.STATUS," +
-                    "ACCOUNT.ADDR1 AS address1,ACCOUNT.ADDR2 AS address2," +
-                    "ACCOUNT.CITY,ACCOUNT.STATE,ACCOUNT.ZIP,ACCOUNT.COUNTRY,ACCOUNT.PHONE," +
-                    "PROFILE.LANGPREF AS languagePreference,PROFILE.FAVCATEGORY AS favouriteCategoryId," +
-                    "PROFILE.MYLISTOPT AS listOption,PROFILE.BANNEROPT AS bannerOption," +
-                    "BANNERDATA.BANNERNAME " +
-                    "FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA " +
-                    "WHERE ACCOUNT.USERID = ? AND SIGNON.PASSWORD = ? " +
-                    "AND SIGNON.USERNAME = ACCOUNT.USERID " +
-                    "AND PROFILE.USERID = ACCOUNT.USERID " +
-                    "AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
+    private static final String GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "SELECT " +
+            "SIGNON.USERNAME," +
+            "ACCOUNT.EMAIL,ACCOUNT.FIRSTNAME,ACCOUNT.LASTNAME,ACCOUNT.STATUS," +
+            "ACCOUNT.ADDR1 AS address1,ACCOUNT.ADDR2 AS address2," +
+            "ACCOUNT.CITY,ACCOUNT.STATE,ACCOUNT.ZIP,ACCOUNT.COUNTRY,ACCOUNT.PHONE," +
+            "PROFILE.LANGPREF AS languagePreference,PROFILE.FAVCATEGORY AS favouriteCategoryId," +
+            "PROFILE.MYLISTOPT AS listOption,PROFILE.BANNEROPT AS bannerOption," +
+            "BANNERDATA.BANNERNAME " +
+            "FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA " +
+            "WHERE ACCOUNT.USERID = ? AND SIGNON.PASSWORD = ? " +
+            "AND SIGNON.USERNAME = ACCOUNT.USERID " +
+            "AND PROFILE.USERID = ACCOUNT.USERID " +
+            "AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
+
+
 
     @Override
     public Account getAccountByUsername(String username) {
@@ -30,7 +34,7 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public Account getAccountByUsernameAndPassword(Account account) {
+    public Account getAccountByUsernameAndPassword(Account account) {//通过账号密码从数据库查找到对应用户信息
         Account accountResult = null;
         try{
             Connection connection = DBUtil.getConnection();
@@ -48,6 +52,7 @@ public class AccountDaoImpl implements AccountDao {
         }catch (Exception e){
             e.printStackTrace();
         }
+
         return accountResult;
     }
 
@@ -92,6 +97,7 @@ public class AccountDaoImpl implements AccountDao {
     @Override
     public void updateAccount(Account account) {
 
+
     }
 
     @Override
@@ -104,12 +110,13 @@ public class AccountDaoImpl implements AccountDao {
 
     }
 
-//    public static void main(String[] args) {
-//        AccountDao accountDao = new AccountDaoImpl();
-//        Account account = new Account();
-//        account.setUsername("j2ee");
-//        account.setPassword("j2ee");
-//        Account result = accountDao.getAccountByUsernameAndPassword(account);
-//        System.out.println("success");
-//    }
+   public static void main(String[] args) {
+        AccountDao accountDao = new AccountDaoImpl();
+        Account account = new Account();
+        account.setUsername("j2ee");
+        account.setPassword("j2ee");
+        Account re = accountDao.getAccountByUsernameAndPassword(account);
+       System.out.println();
+
+    }
 }

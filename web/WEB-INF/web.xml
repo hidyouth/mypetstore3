@@ -41,11 +41,11 @@
     </servlet>
     <servlet>
         <servlet-name>RemoveCartItemServlet</servlet-name>
-        <servlet-class>cus21047.web.mypetstore.web.servlet.RemoveCartItemServlet</servlet-class>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.CartFormServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CartFormServlet</servlet-name>
-        <servlet-class>cus21047.web.mypetstore.web.servlet.CartFormServlet</servlet-class>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.UpdateCartServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -102,6 +102,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RecordFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.RecordFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RecordFormServlet</servlet-name>
+        <url-pattern>/recordForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>VerificationServlet</servlet-name>
         <servlet-class>cus21047.web.mypetstore.web.servlet.VerificationServlet</servlet-class>
     </servlet>
@@ -111,13 +121,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>NewOrderServlet</servlet-name>
-        <servlet-class>cus21047.web.mypetstore.web.servlet.NewOrderServlet</servlet-class>
+        <servlet-name>ClearRecordServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.ClearRecordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>NewOrderServlet</servlet-name>
-        <url-pattern>/NewOrder</url-pattern>
+        <servlet-name>ClearRecordServlet</servlet-name>
+        <url-pattern>/clearRecord</url-pattern>
     </servlet-mapping>
-
-
 </web-app>

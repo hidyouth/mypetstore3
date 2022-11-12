@@ -127,7 +127,6 @@ public class CartDaoImpl implements CartDao {
             pStatement.setString(3,username);
             pStatement.setString(4,itemId);
 
-
             ItemDao itemDao =new ItemDaoImpl();
             Item item = itemDao.getItem(itemId);
             BigDecimal listprice = item.getListPrice();

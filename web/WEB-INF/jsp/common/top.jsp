@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PetStore</title>
-    <link rel="stylesheet" href="css/petstore.css"/>
+    <link rel="stylesheet" href="css/petstore.css" type="text/css" media="screen"/>
 </head>
 <body>
 <div class="top">
@@ -33,6 +33,9 @@
             </div>
             <div>
                 <a href="">MyAccount</a>
+            </div>
+            <div>
+                <a href="recordForm" >Browse Records</a>
             </div>
             <div>
                 <a href="">Login Out</a>
