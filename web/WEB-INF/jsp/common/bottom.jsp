@@ -4,7 +4,7 @@
 <div class="bottom">
     <div>
         <label>
-            <a href="www.csu.edu.cn">www.csu.edu.cn</a>
+            <a href="http://www.csu.edu.cn">www.csu.edu.cn</a>
         </label>
     </div>
 

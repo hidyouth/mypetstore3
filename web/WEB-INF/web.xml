@@ -102,6 +102,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RecordFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.RecordFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RecordFormServlet</servlet-name>
+        <url-pattern>/recordForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>VerificationServlet</servlet-name>
         <servlet-class>cus21047.web.mypetstore.web.servlet.VerificationServlet</servlet-class>
     </servlet>

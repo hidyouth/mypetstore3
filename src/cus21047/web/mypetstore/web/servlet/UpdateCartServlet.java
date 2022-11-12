@@ -1,11 +1,7 @@
 package cus21047.web.mypetstore.web.servlet;
 
-import cus21047.web.mypetstore.domain.Account;
 import cus21047.web.mypetstore.domain.Cart;
 import cus21047.web.mypetstore.domain.CartItem;
-import cus21047.web.mypetstore.persistence.CartDao;
-import cus21047.web.mypetstore.persistence.impl.CartDaoImpl;
-import cus21047.web.mypetstore.service.CartService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,22 +12,34 @@ import java.io.IOException;
 import java.util.Iterator;
 
 
+
 public class UpdateCartServlet extends HttpServlet {
 
     private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
-    CartDao cartDao = new CartDaoImpl();
 
     @Override
     protected  void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         HttpSession session =req.getSession();
-        String itemId = req.getParameter("itemId");
-        Account loginAccount = (Account) session.getAttribute("loginAccount");
-        String username = loginAccount.getUsername();
-        String numString = req.getParameter("num");
-        int num = Integer.parseInt(numString);
-        cartDao.UpdateCart(itemId,username,num);
+        Cart cart=(Cart) session.getAttribute("cart");
+        Iterator<CartItem> cartItems=cart.getAllCartItems();
 
-        resp.sendRedirect("cartForm");
+        while (cartItems.hasNext()) {
+            CartItem cartItem = (CartItem) cartItems.next();
+            String itemId = cartItem.getItem().getItemId();
+            try {
+                String quantityString = req.getParameter(itemId);
+                int quantity = Integer.parseInt(quantityString);
+
+                cart.setQuantityByItemId(itemId, quantity);
+                if (quantity < 1) {
+                    cartItems.remove();
+                }
+            } catch (Exception e) {
+                //ignore parse exceptions on purpose
+            }
+        }
+
+        req.getRequestDispatcher(CART_FORM).forward(req,resp);
     }
 }
 
