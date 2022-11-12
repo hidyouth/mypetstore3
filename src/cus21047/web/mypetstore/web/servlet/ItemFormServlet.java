@@ -1,5 +1,5 @@
 package cus21047.web.mypetstore.web.servlet;
-
+import java.util.*;
 import cus21047.web.mypetstore.domain.Account;
 import cus21047.web.mypetstore.domain.Item;
 import cus21047.web.mypetstore.domain.Product;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class ItemFormServlet extends HttpServlet {
     private CatalogService catalogService;
@@ -29,10 +30,13 @@ public class ItemFormServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         Account loginAccount = (Account) session.getAttribute("loginAccount");
+        //实现将浏览记录入数据库功能
         if (loginAccount != null) {
             RecordService userService = new RecordService();
             this.userid = loginAccount.getUsername();
-            userService.InsertToRecord(userid,itemId);
+            SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+            Date date = new Date(System.currentTimeMillis());
+            userService.InsertToRecord(userid,itemId+" -----------------------------------------------------------------------------"+formatter.format(date));
         }
             session.setAttribute("product", product);
             session.setAttribute("item", item);
