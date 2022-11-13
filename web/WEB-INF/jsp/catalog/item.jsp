@@ -80,7 +80,7 @@
     <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}">
       <button class="returnANDsubmit">Add to Cart</button>
     </a>
-    <a href="newOrderForm?ItemId=${sessionScope.item.itemId}">
+    <a href="newOrderForm?itemId=${sessionScope.item.itemId}">
       <button class="returnANDsubmit">Make An Order</button>
     </a>
   </div>

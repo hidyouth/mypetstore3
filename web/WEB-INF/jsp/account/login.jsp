@@ -27,9 +27,9 @@
         </div>
         <div class="input-box">
             <label>验证码</label>
-            <input type="text" name="VerificationCode"/>
+            <input type="text"  name="VerificationCode"/>
             <div class="verification">
-                <input type="text" name="Verification" value="${requestScope.VerificationCode}"/>
+                <input type="text" readonly unselectable="on" name="Verification" value="${requestScope.VerificationCode}"/>
                 <a href="Verification">换一个</a>
             </div>
 

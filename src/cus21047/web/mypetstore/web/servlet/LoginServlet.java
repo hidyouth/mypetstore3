@@ -1,6 +1,8 @@
 package cus21047.web.mypetstore.web.servlet;
 
 import cus21047.web.mypetstore.domain.Account;
+import cus21047.web.mypetstore.persistence.RecordDao;
+import cus21047.web.mypetstore.persistence.impl.RecordDaoImpl;
 import cus21047.web.mypetstore.service.AccountService;
 
 import javax.servlet.ServletException;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class LoginServlet extends HttpServlet {
 
@@ -41,6 +45,10 @@ public class LoginServlet extends HttpServlet {
                 if(this.VerificationCode.equals(this.Verification)){
                     HttpSession session = req.getSession();
                     session.setAttribute("loginAccount",loginAccount);
+                    SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                    Date date = new Date(System.currentTimeMillis());
+                    RecordDao userService = new RecordDaoImpl();
+                    userService.InsertToRecord(username,"µÇÂ¼"+" -----------------------------"+formatter.format(date),0);
                     resp.sendRedirect("mainForm");
                 }else{
                     this.loginMsg = "ÑéÖ¤Âë´íÎó";

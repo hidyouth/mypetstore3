@@ -36,7 +36,7 @@ public class ItemFormServlet extends HttpServlet {
             this.userid = loginAccount.getUsername();
             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
             Date date = new Date(System.currentTimeMillis());
-            userService.InsertToRecord(userid,itemId+" -----------------------------------------------------------------------------"+formatter.format(date));
+            userService.InsertToRecord(userid,itemId+" -----------------------------"+formatter.format(date),1);
         }
             session.setAttribute("product", product);
             session.setAttribute("item", item);

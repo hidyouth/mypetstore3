@@ -12,10 +12,10 @@ import java.util.List;
 
 public class RecordDaoImpl implements RecordDao {
 
-    private static final String GetRecordList = "SELECT * FROM record WHERE userid = ?";
+    private static final String GetRecordList = "SELECT * FROM record WHERE userid = ? AND isitem = 1";
 
 
-    private static final String AddRecord = "insert INTO record(userid,records) VALUES(?,?)";
+    private static final String AddRecord = "insert INTO record(userid,records,isItem) VALUES(?,?,?)";
 
     private static final String DeleteRecord = "DELETE FROM record WHERE userid=?";
 
@@ -45,12 +45,14 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
-    public void InsertToRecord(String userid, String records) {
+    public void InsertToRecord(String userid, String records,int isItem) {
         try {
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(AddRecord);
             pStatement.setString(1, userid);
             pStatement.setString(2, records);
+            pStatement.setInt(3,isItem);
+
             pStatement.execute();
 
             DBUtil.closeStatement(pStatement);

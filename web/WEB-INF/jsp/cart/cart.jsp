@@ -9,7 +9,7 @@
             你还没有<a href="LoginForm">登录</a>.
         </c:if>
         <c:if test="${sessionScope.loginAccount !=null}">
-            ${sessionScope.loginAccount.username}<br/>
+            <h2>Shopping Cart</h2>
             <c:if test="${sessionScope.cartList == null}">
                     There is no product in your cart.
             </c:if>

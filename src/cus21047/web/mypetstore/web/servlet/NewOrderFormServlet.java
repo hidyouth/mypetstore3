@@ -34,11 +34,10 @@ public class NewOrderFormServlet extends HttpServlet {
                 session.setAttribute("itemId",item.getItemId());
                 session.setAttribute("num",1);
                 session.setAttribute("listprice",item.getListPrice());
-
             }else {
                 session.setAttribute("itemId",cart.getItemId());
                 session.setAttribute("num",cart.getNum());
-                session.setAttribute("listprice",cart.getTotal_cost());
+                session.setAttribute("listprice",cart.getListprice());
             }
 
 

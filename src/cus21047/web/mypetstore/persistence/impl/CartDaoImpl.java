@@ -73,7 +73,8 @@ public class CartDaoImpl implements CartDao {
                 cart.setItemId(resultSet.getString(2));
                 cart.setProductId(resultSet.getString(3));
                 cart.setNum(resultSet.getInt(4));
-                cart.setTotal_cost(resultSet.getBigDecimal(5));
+                cart.setTotal_cost(resultSet.getBigDecimal(6));
+                cart.setListprice(resultSet.getBigDecimal(5));
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closeStatement(pStatement);

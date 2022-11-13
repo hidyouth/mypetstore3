@@ -31,7 +31,7 @@ public class AccountDaoImpl implements AccountDao {
                     "ACCOUNT.STATE,"+
                     "ACCOUNT.ZIP,"+
                     "ACCOUNT.COUNTRY,"+
-                    "ACCOUNT.PHONE,"+
+                    "ACCOUNT.PHONE "+
                     "FROM ACCOUNT, SIGNON "+
                     "WHERE ACCOUNT.USERID = ?"+
                     "AND SIGNON.USERNAME = ACCOUNT.USERID ";
@@ -43,6 +43,20 @@ public class AccountDaoImpl implements AccountDao {
     private static final String INSTER_SINGON =
             "INSERT INTO SIGNON (PASSWORD,USERNAME)" +
                     " VALUES (?, ?)";
+    private static final String UPDATE_ACCOUNT=
+            "UPDATE ACCOUNT SET\n" +
+                    "      EMAIL = ?,\n" +
+                    "      FIRSTNAME = ?,\n" +
+                    "      LASTNAME = ?,\n" +
+                    "      STATUS = ?,\n" +
+                    "      ADDR1 = ?,\n" +
+                    "      ADDR2 = ?,\n" +
+                    "      CITY = ?,\n" +
+                    "      STATE = ?,\n" +
+                    "      ZIP = ?,\n" +
+                    "      COUNTRY = ?,\n" +
+                    "      PHONE = ?\n" +
+                    "    WHERE USERID = ?";
 
 
     @Override
@@ -161,7 +175,29 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void updateAccount(Account account) {
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.
+                    prepareStatement(UPDATE_ACCOUNT);
 
+            pStatement.setString(1,account.getEmail());
+            pStatement.setString(2,account.getFirstName());
+            pStatement.setString(3,account.getLastName());
+            pStatement.setString(4,account.getStatus());
+            pStatement.setString(5,account.getAddress1());
+            pStatement.setString(6,account.getAddress2());
+            pStatement.setString(7,account.getCity());
+            pStatement.setString(8,account.getState());
+            pStatement.setString(9,account.getZip());
+            pStatement.setString(10,account.getCountry());
+            pStatement.setString(11,account.getPhone());
+            pStatement.setString(12,account.getUsername());
+            pStatement.execute();
+            DBUtil.closePreparedStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -200,7 +236,7 @@ public static void main(String[] args) {
     account.setCountry("1");
     account.setPhone("1");
 
-    accountDao.insertAccount(account);
+   Account account1 = accountDao.getAccountByUsername("1");
     System.out.println();
 }
 }

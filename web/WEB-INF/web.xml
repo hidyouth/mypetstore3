@@ -173,6 +173,32 @@
         <servlet-name>ClearRecordServlet</servlet-name>
         <url-pattern>/clearRecord</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MyAccountFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.MyAccountFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyAccountFormServlet</servlet-name>
+        <url-pattern>/MyAccountForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.UpdateAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <url-pattern>/UpdateAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteSessionServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.DeleteSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteSessionServlet</servlet-name>
+        <url-pattern>/DeleteSession</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

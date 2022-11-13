@@ -1,7 +1,10 @@
 package cus21047.web.mypetstore.web.servlet;
 
+import cus21047.web.mypetstore.domain.Account;
 import cus21047.web.mypetstore.domain.Item;
 import cus21047.web.mypetstore.domain.Product;
+import cus21047.web.mypetstore.persistence.RecordDao;
+import cus21047.web.mypetstore.persistence.impl.RecordDaoImpl;
 import cus21047.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -10,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ProductFormServlet  extends HttpServlet {
@@ -25,6 +30,13 @@ public class ProductFormServlet  extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("product",product);
         session.setAttribute("itemList",itemList);
+        Account account = (Account) session.getAttribute("loginAccount");
+        if(account != null){
+            RecordDao userService = new RecordDaoImpl();
+            SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+            Date date = new Date(System.currentTimeMillis());
+            userService.InsertToRecord(account.getUsername(),"‰Ø¿¿"+productId+" -----------------------------"+formatter.format(date),0);
+        }
 
         req.getRequestDispatcher(PRODUCT_FORM).forward(req,resp);
 

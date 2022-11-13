@@ -16,5 +16,5 @@ public class RecordService {
         return this.recordDao.getRecordList(userid);
     }
     public void DeleteRecord(String userid){ this.recordDao.DeleteRecord(userid);}
-    public void InsertToRecord(String userid, String records){this.recordDao.InsertToRecord(userid,records);}
+    public void InsertToRecord(String userid, String records,int isItem){this.recordDao.InsertToRecord(userid,records,isItem);}
 }

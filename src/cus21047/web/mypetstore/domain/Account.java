@@ -65,8 +65,6 @@ public class Account implements Serializable {
     public String getFirstName() {
         return firstName;
     }
-
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

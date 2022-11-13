@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PetStore</title>
-    <link rel="stylesheet" href="css/petstore.css"/>
+    <link rel="stylesheet" href="css/petstore2.css"/>
 </head>
 <body>
 <div class="top">
@@ -21,7 +21,7 @@
                 <a href="loginForm">Login</a>
             </div>
             <div>
-                <a href="">Register</a>
+                <a href="RegisterForm">Register</a>
             </div>
         </c:if>
         <c:if test="${sessionScope.loginAccount != null}">
@@ -35,13 +35,13 @@
                 <a href="OrderForm">My Order</a>
             </div>
             <div>
-                <a href="">MyAccount</a>
+                <a href="MyAccountForm">MyAccount</a>
             </div>
             <div>
                 <a href="recordForm" >Browse Records</a>
             </div>
             <div>
-                <a href="">Login Out</a>
+                <a href="DeleteSession">Login Out</a>
             </div>
         </c:if>
     </div>
