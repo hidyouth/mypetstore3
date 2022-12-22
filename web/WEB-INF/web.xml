@@ -200,5 +200,14 @@
         <url-pattern>/DeleteSession</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.SearchFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <url-pattern>/SearchForm</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

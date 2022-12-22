@@ -8,44 +8,39 @@
 <head>
     <meta charset="UTF-8">
     <title>PetStore</title>
-    <link rel="stylesheet" href="css/petstore2.css"/>
+    <link rel="stylesheet" href="css/newpetstore.css"/>
+    <script src="https://kit.fontawesome.com/377da027eb.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <div class="top">
-    <div class="top-returnmain">
+    <div class="top-logo">
         <a href="mainForm">PetStore</a>
     </div>
+    <div class="top-search">
+        <form method="post" action="SearchForm">
+            <input type="text">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+
+    </div>
     <div class="top-account">
-        <c:if test="${sessionScope.loginAccount ==null}">
-            <div>
-                <a href="loginForm">Login</a>
-            </div>
-            <div>
-                <a href="RegisterForm">Register</a>
-            </div>
+        <c:if test="${sessionScope.loginAccount ==null }">
+            <span><a href="cartForm">ShoppingCart</a></span>
+            <span><a href="OrderForm">MyOrder</a></span>
+            <span><a href="MyAccountForm">MyAccount</a></span>
+            <span><a href="recordForm">BrowseRecords</a></span>
+            <span><a href="DeleteSession">LoginOut</a></span>
         </c:if>
         <c:if test="${sessionScope.loginAccount != null}">
-            <div>
-                Welcome,${sessionScope.loginAccount.username}
-            </div>
-            <div>
-                <a href="cartForm">Shopping Cart</a>
-            </div>
-            <div>
-                <a href="OrderForm">My Order</a>
-            </div>
-            <div>
-                <a href="MyAccountForm">MyAccount</a>
-            </div>
-            <div>
-                <a href="recordForm" >Browse Records</a>
-            </div>
-            <div>
-                <a href="DeleteSession">Login Out</a>
-            </div>
+            <span><a href="loginForm">Login</a></span>
+            <span><a href="RegisterForm">Register</a></span>
         </c:if>
+
     </div>
 </div>
+
 
 <div class="middle">
 

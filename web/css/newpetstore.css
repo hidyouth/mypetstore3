@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.top{
+    background: #eee;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.top .top-logo{
+    margin-left: 20px;
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(0, 47, 167);
+}
+.top .top-search{
+    margin-left: 25%;
+    margin-right: 10%;
+
+}
+.top .top-search > form > input{
+    height: 25px;
+    width: 200px;
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid rgb(0, 47, 167);
+    outline: none;
+}
+.top .top-search >form > button{
+    height: 25px;
+    width: 25px;
+}
+.top .top-account > span > a{
+    color: #61666D;
+    transition: 0.2s;
+}
+.top .top-account > span > a:hover{
+    color: rgb(0, 47, 167);
+}
+
+.overall{
+    width:900px;
+    height: 500px;
+
+    align-items: center;
+
+    margin: 5% auto;
+}
+
+.content{
+    position: relative;
+    height: 400px;
+}
+.content ul{
+    list-style-type: none;
+}
+.content ul > li{
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    transition: 1s;
+
+
+    opacity: 0;
+}
+
+.c0ntent ul>li img{
+    width: 900px;
+    height: 500px;
+
+    border-radius: 5%;
+
+    border: 5px solid #0e0600;
+}
+.content ol{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5,75px);
+
+    grid-template-rows: auto;
+
+
+    grid-gap: 1em;
+    gap: 1em;
+
+    float: right;
+
+    margin-top: 450px;
+    list-style: none;
+    top: 0;
+    left: 0;
+}
+
+.content ol li{
+    /* 设置每个小点的大小 */
+    width: 25px;
+    height: 10px;
+
+    /* 设置里面的文字的大小 */
+    font-size: 15px;
+
+    /* line-height 属性设置行间的距离（行高） */
+    line-height: 20px;
+
+    /* 浮动左对齐 */
+    float: left;
+
+    /* 设置文本居中 */
+    text-align: center;
+
+    /* 把表格做成圆点 */
+    border-radius: 2em;
+
+    /* 设置圆点的边框 */
+    border: 5px solid #af9d9d;
+}
+
+.show{
+    margin-left: 10%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+}
+.show .category{
+    background: #eee;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+.show .category > p{
+    font-weight: 600;
+    padding-left: 10px;
+    font-size: 25px;
+}
+.show .category > a{
+    float: right;
+    color: #61666D;
+}
+.show .category > a:hover{
+    color: rgb(0, 47, 167);
+}
+.show .product{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.show .product > div{
+    border: rgba(0,0,0,0%) solid 5px;
+    display: flex;
+    flex-direction: column;
+    background: #eee;
+    margin-right: 20px;
+    width: 220px;
+}
+.show .product > div:hover{
+    border: #003399 solid 5px;
+}

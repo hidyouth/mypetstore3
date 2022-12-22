@@ -1,0 +1,5 @@
+INSERT INTO mypetstore.account (userid, email, firstname, lastname, status, addr1, addr2, city, state, zip, country, phone) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
+INSERT INTO mypetstore.account (userid, email, firstname, lastname, status, addr1, addr2, city, state, zip, country, phone) VALUES ('2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2');
+INSERT INTO mypetstore.account (userid, email, firstname, lastname, status, addr1, addr2, city, state, zip, country, phone) VALUES ('3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
+INSERT INTO mypetstore.account (userid, email, firstname, lastname, status, addr1, addr2, city, state, zip, country, phone) VALUES ('ACID', 'acid@yourdomain.com', 'ABC', 'XYX', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA', '555-555-5555');
+INSERT INTO mypetstore.account (userid, email, firstname, lastname, status, addr1, addr2, city, state, zip, country, phone) VALUES ('j2ee', 'yourname@yourdomain.com', 'ABC', 'XY', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA', '555-555-5555');
