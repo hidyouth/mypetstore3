@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <title>PetStore</title>
     <link rel="stylesheet" href="css/newpetstore.css"/>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/377da027eb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -26,14 +27,14 @@
 
     </div>
     <div class="top-account">
-        <c:if test="${sessionScope.loginAccount ==null }">
+        <c:if test="${sessionScope.loginAccount != null }">
             <span><a href="cartForm">ShoppingCart</a></span>
             <span><a href="OrderForm">MyOrder</a></span>
             <span><a href="MyAccountForm">MyAccount</a></span>
             <span><a href="recordForm">BrowseRecords</a></span>
             <span><a href="DeleteSession">LoginOut</a></span>
         </c:if>
-        <c:if test="${sessionScope.loginAccount != null}">
+        <c:if test="${sessionScope.loginAccount == null}">
             <span><a href="loginForm">Login</a></span>
             <span><a href="RegisterForm">Register</a></span>
         </c:if>

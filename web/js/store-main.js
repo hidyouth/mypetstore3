@@ -1,5 +1,4 @@
 window.onload = function(){
-    console.log('aaa');
     var content = this.document.getElementsByClassName('content')[0];
 
     var li = content.getElementsByTagName('li');

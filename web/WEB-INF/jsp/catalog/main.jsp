@@ -6,11 +6,11 @@
     <!-- ÄÚÈÝ -->
     <div class="content">
         <ul>
-            <li><img src="image/dog.jpg" alt=""></li>
-            <li><img src="image/cat.jpg" alt=""></li>
-            <li><img src="image/fish.jpg" alt=""></li>
-            <li><img src="image/bird.jpg" alt=""></li>
-            <li><img src="image/reptiles.jpg" alt=""></li>
+            <li><a href="categoryForm?categoryId=DOGS"><img src="image/dog.jpg" alt=""></a></li>
+            <li><a href="categoryForm?categoryId=CATS"><img src="image/cat.jpg" alt=""></a></li>
+            <li><a href="categoryForm?categoryId=FISH"><img src="image/fish.jpg" alt=""></a></li>
+            <li><a href="categoryForm?categoryId=BIRDS"><img src="image/bird.jpg" alt=""></a></li>
+            <li><a href="categoryForm?categoryId=REPTILES"><img src="image/reptiles.jpg" alt=""></a></li>
         </ul>
         <ol>
             <li></li>
@@ -28,13 +28,13 @@
         <a href="categoryForm?categoryId=CATS">View more....</a>
     </div>
     <div class="product">
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=FL-DSH-01"><img src="image/manx.jpg"></a>
-            <a href="productForm?productId=FL-DSH-01">Manx</a>
+            <a href="productForm?productId=FL-DSH-01" class="pro-name">Manx</a>
         </div>
-        <div>
-            <a href="productForm?productId=FL-DSH-02"><img src="image/persian.jpg"></a>
-            <a href="productForm?productId=FL-DSH-02">Persion</a>
+        <div class="product-show">
+            <a href="productForm?productId=FL-DLH-02"><img src="image/persian.jpg"></a>
+            <a href="productForm?productId=FL-DLH-02" class="pro-name">Persion</a>
         </div>
     </div>
 
@@ -43,13 +43,13 @@
         <a href="categoryForm?categoryId=DOGS">View more....</a>
     </div>
     <div class="product">
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=K9-BD-01"><img src="image/bulldog.jpg"></a>
-            <a href="productForm?productId=K9-BD-01">Bulldog</a>
+            <a href="productForm?productId=K9-BD-01" class="pro-name">Bulldog</a>
         </div>
-        <div>
-            <a href="productForm?productId=FL-DSH-02"><img src="image/chihuahua.jpg"></a>
-            <a href="productForm?productId=FL-DSH-02">Chihuahua</a>
+        <div class="product-show">
+            <a href="productForm?productId=K9-CW-01"><img src="image/chihuahua.jpg"></a>
+            <a href="productForm?productId=K9-CW-01" class="pro-name">Chihuahua</a>
         </div>
     </div>
 
@@ -58,13 +58,13 @@
         <a href="categoryForm?categoryId=BIRDS">View more....</a>
     </div>
     <div class="product">
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=AV-CB-01"><img src="image/amazonparrot.png"></a>
-            <a href="productForm?productId=AV-CB-01">Amazon Parrot</a>
+            <a href="productForm?productId=AV-CB-01" class="pro-name">Amazon Parrot</a>
         </div>
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=AV-SB-02"><img src="image/finch.jpg"></a>
-            <a href="productForm?productId=AV-SB-02">Finch</a>
+            <a href="productForm?productId=AV-SB-02" class="pro-name">Finch</a>
         </div>
     </div>
 
@@ -73,13 +73,13 @@
         <a href="categoryForm?categoryId=CATS">View more....</a>
     </div>
     <div class="product">
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=FI-SW-01"><img src="image/angelfish.jpg"></a>
-            <a href="productForm?productId=FI-SW-01">Angelfish</a>
+            <a href="productForm?productId=FI-SW-01" class="pro-name">Angelfish</a>
         </div>
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=FI-SW-02"><img src="image/goldfish.jpg"></a>
-            <a href="productForm?productId=FI-SW-02">Goldfish</a>
+            <a href="productForm?productId=FI-SW-02" class="pro-name">Goldfish</a>
         </div>
     </div>
 
@@ -88,13 +88,13 @@
         <a href="categoryForm?categoryId=REPTILES">View more....</a>
     </div>
     <div class="product">
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=RP-LI-02"><img src="image/iguana.jpg"></a>
-            <a href="productForm?productId=RP-LI-02">Iguana</a>
+            <a href="productForm?productId=RP-LI-02" class="pro-name">Iguana</a>
         </div>
-        <div>
+        <div class="product-show">
             <a href="productForm?productId=RP-SN-01"><img src="image/rattlesnake.jpg"></a>
-            <a href="productForm?productId=RP-SN-01">Rattlesnake</a>
+            <a href="productForm?productId=RP-SN-01" class="pro-name">Rattlesnake</a>
         </div>
     </div>
     <script src="js/store-main.js"></script>

@@ -150,7 +150,7 @@ a{
     flex-direction: row;
     margin-bottom: 20px;
 }
-.show .product > div{
+.product-show{
     border: rgba(0,0,0,0%) solid 5px;
     display: flex;
     flex-direction: column;
@@ -158,6 +158,13 @@ a{
     margin-right: 20px;
     width: 220px;
 }
-.show .product > div:hover{
+.product-show .pro-name{
+    text-align: center;
+    color: #61666D;
+}
+.product-show .pro-name:hover{
+    color: #003399;
+}
+.product-show:hover{
     border: #003399 solid 5px;
 }

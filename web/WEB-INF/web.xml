@@ -209,5 +209,14 @@
         <url-pattern>/SearchForm</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ProductInfoServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.ProductInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductInfoServlet</servlet-name>
+        <url-pattern>/ProductInfo</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

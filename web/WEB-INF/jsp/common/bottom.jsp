@@ -13,6 +13,6 @@
 
 
 </div>
-
+<script src="js/pro-info1.js"></script>
 </body>
 </html>
