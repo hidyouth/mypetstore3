@@ -41,6 +41,5 @@ public class ItemFormServlet extends HttpServlet {
             session.setAttribute("product", product);
             session.setAttribute("item", item);
             req.getRequestDispatcher(ITEM_FORM).forward(req, resp);
-
     }
 }

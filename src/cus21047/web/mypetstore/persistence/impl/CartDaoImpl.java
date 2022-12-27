@@ -132,16 +132,11 @@ public class CartDaoImpl implements CartDao {
 
             ItemDao itemDao =new ItemDaoImpl();
             Item item = itemDao.getItem(itemId);
-            BigDecimal listprice = item.getListPrice();
-            BigDecimal li= listprice;
-            for(int i=0;i<num-1;i++){
+            BigDecimal li= item.getListPrice();
 
-               BigDecimal listprice1=listprice.add(li);
-               listprice=listprice1;
-            }
+            BigDecimal listprice  = BigDecimal.valueOf((int)num).multiply(li);
             pStatement.setBigDecimal(2,listprice);
             pStatement.executeUpdate();
-
 
             DBUtil.closeStatement(pStatement);
             DBUtil.closeConnection(connection);
@@ -150,11 +145,11 @@ public class CartDaoImpl implements CartDao {
         }
     }
 
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
         CartDao cartDao = new CartDaoImpl();
         cartDao.UpdateCart("EST-18","j2ee",2);
         System.out.println("success");
-    }
+    }*/
 
 }
 

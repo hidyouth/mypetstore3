@@ -14,19 +14,18 @@
                     There is no product in your cart.
             </c:if>
             <c:if test="${sessionScope.cartList != null}">
-                <c:forEach var="cart" items="${sessionScope.cartList}">
+                <c:forEach var="cart" items="${sessionScope.cartList}" >
                     <div class="Cart">
-                        <a href="itemForm?itemId=${cart.itemId}">${cart.itemId}</a>
+                        <a href="itemForm?itemId=${cart.itemId}" >${cart.itemId}</a>
                         <label>${cart.productId}</label>
-                        <label>num:${cart.num}</label>
+                        <label id="cart_num">num:${cart.num}</label>
                         Update num:
-                        <form action="updateCart" method="post">
+                        <form action="updateCart" method="post" id="cartContent">
                             <input type="hidden" name="itemId" value="${cart.itemId}">
-                            <input type="text" name="num" value="${cart.num}"/>
-                            <button type="submit" class="returnANDsubmit">Update Cart</button>
+                            <input type="text" name="num" id="cartNum" value="${cart.num}"/>
                         </form>
 
-                        <label>$: ${cart.total_cost}</label>
+                        <label id="total_cost">$: ${cart.total_cost}</label>
                         <a href="removeCartItem?workingItemId=${cart.itemId}" ><button class="remove">Remove</button></a>
                         <a href="newOrderForm?itemId=${cart.itemId}" ><button class="returnANDsubmit">Place an order</button></a>
 
@@ -129,7 +128,7 @@
         </c:if>
     </div>--%>
 
-
+<script src="./js/cart-update.js"></script>
 
 
 <%@ include file="../common/bottom.jsp"%>

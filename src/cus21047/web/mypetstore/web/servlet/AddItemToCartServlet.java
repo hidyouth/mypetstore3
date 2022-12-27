@@ -27,7 +27,6 @@ public class AddItemToCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         String workingItemId = req.getParameter("workingItemId");
         CartService cartService = new CartService();
         ItemDao itemDao = new ItemDaoImpl();
@@ -38,6 +37,8 @@ public class AddItemToCartServlet extends HttpServlet {
         if(loginAccount == null){
             resp.sendRedirect("loginForm");
         }else{
+            /*HttpSession session = req.getSession();
+            session.setAttribute("loginAccount",loginAccount);*/
             String username = loginAccount.getUsername();
             Cart cart = cartService.getCart(workingItemId,username);
             Item item = itemDao.getItem(workingItemId);

@@ -38,10 +38,8 @@
             <span><a href="loginForm">Login</a></span>
             <span><a href="RegisterForm">Register</a></span>
         </c:if>
-
     </div>
 </div>
-
 
 <div class="middle">
 
