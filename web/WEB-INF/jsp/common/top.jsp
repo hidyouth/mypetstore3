@@ -20,10 +20,18 @@
     </div>
     <div class="top-search">
         <form method="post" action="SearchForm">
-            <input type="text">
+            <input type="text" name="keyword" id="keyword">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-
+        <div id="productAutoComplete">
+            <ul id="productAutoList">
+<%--                <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                <li class="productAutoItem">Labrador Retriever</li>--%>
+<%--                <li class="productAutoItem">Rattlesnakes</li>--%>
+<%--                <li class="productAutoItem">Chihuahua</li>--%>
+<%--                <li class="productAutoItem">Tiger Shark</li>--%>
+            </ul>
+        </div>
 
     </div>
     <div class="top-account">

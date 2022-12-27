@@ -98,4 +98,12 @@ public class ProductDaoImpl implements ProductDao {
         return productList;
     }
 
+    public static void main(String[] args) {
+        ProductDao p=new ProductDaoImpl();
+        List<Product> s= p.searchProductList("a");
+        System.out.println(s);
+
+    }
 }
+
+

@@ -1,7 +1,6 @@
 package cus21047.web.mypetstore.web.servlet;
 
-import com.alibaba.fastjson.JSON;
-import cus21047.web.mypetstore.domain.Item;
+import cus21047.web.mypetstore.domain.Product;
 import cus21047.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -11,21 +10,39 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import com.alibaba.fastjson.JSON;
 
-public class ProductInfoServlet extends HttpServlet {
+
+public class ProductAutoCompleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CatalogService catalogService = new CatalogService();
-        String productId = req.getParameter("productId");
+        String keyword=req.getParameter("keyword");
+        CatalogService service=new CatalogService();
+        List<Product> productList=service.searchProductList(keyword);
 
-        List<Item> items = catalogService.getItemListByProduct(productId);
-        String result = JSON.toJSONString(items);
+        String result=JSON.toJSONString(productList);
         System.out.println(result);
+
         resp.setContentType("text/json");
-        PrintWriter writer = resp.getWriter();
-        writer.println(result);
-
-
-
+        PrintWriter out=resp.getWriter();
+        out.println(result);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
