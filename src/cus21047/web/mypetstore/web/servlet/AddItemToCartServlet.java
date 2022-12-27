@@ -48,13 +48,10 @@ public class AddItemToCartServlet extends HttpServlet {
             //如果购物车中没有这个商品，就加到购物车中
             if(cart == null){
                 cartService.addCart(workingItemId,username,productId,listprice,total_cost);
-                Account account = (Account) session.getAttribute("loginAccount");
-                if(account != null){
-                    RecordDao userService = new RecordDaoImpl();
-                    SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-                    Date date = new Date(System.currentTimeMillis());
-                    userService.InsertToRecord(account.getUsername(),"加入购物车"+workingItemId+" -----------------------------"+formatter.format(date),0);
-                }
+                RecordDao userService = new RecordDaoImpl();
+                SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                Date date = new Date(System.currentTimeMillis());
+                userService.InsertToRecord(loginAccount.getUsername(),"加入购物车"+workingItemId+" -----------------------------"+formatter.format(date),0);
                 resp.sendRedirect("cartForm");
             }else{
                 resp.sendRedirect("cartForm");
