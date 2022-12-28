@@ -31,13 +31,20 @@
     <div>
         <h2>You are browsing ${sessionScope.category.name}</h2>
     </div>
-    <c:forEach var="product" items="${sessionScope.productList}">
-        <div class="category">
-            <label>PeoductId:</label>
-            <a href="productForm?productId=${product.productId}">${product.productId}</a>
-            <label>Name:</label><label>${product.name}</label>
-        </div>
-    </c:forEach>
+    <div class="product-list">
+        <c:forEach var="product" items="${sessionScope.productList}">
+            <div class="product-show">
+                <a href="productForm?productId=${product.productId}">${product.description}</a>
+                <a href="productForm?productId=${product.productId}" class="pro-name">${product.name}</a>
+            </div>
+            <%--        <div class="category">--%>
+            <%--            <label>PeoductId:</label>--%>
+            <%--            <a href="productForm?productId=${product.productId}">${product.productId}</a>--%>
+            <%--            <label>Name:</label><label>${product.name}</label>--%>
+            <%--        </div>--%>
+        </c:forEach>
+    </div>
+
     <a class="btn-box" href="mainForm">
             <button class="returnANDsubmit">Return To Main Menu</button>
     </a>

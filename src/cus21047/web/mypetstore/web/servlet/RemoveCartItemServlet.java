@@ -22,24 +22,16 @@ public class RemoveCartItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req. getSession();
-        CartDao cartDao=new CartDaoImpl();
-        Cart cart = (Cart) session.getAttribute("cart");
-        Account account=(Account)session.getAttribute("loginAccount");
+        CartDao cartDao = new CartDaoImpl();
+        Account account = (Account)session.getAttribute("loginAccount");
 
         String workingItemId = req.getParameter("workingItemId");
 
+
         cartDao.DeleteCart(workingItemId,account.getUsername());
-        resp.sendRedirect("cartForm");
-     //   req.getRequestDispatcher(CART_FORM).forward(req, resp);
 
-        /*if (item == null) {
-            session.setAttribute("errorMsg", "Attempted to remove null CartItem from Cart.");
-            req.getRequestDispatcher(ERROR_FORM).forward(req, resp);
 
-        }else {
-            req.getRequestDispatcher(CART_FORM).forward(req, resp);
-
-        }*/
+        req.getRequestDispatcher(CART_FORM).forward(req, resp);
 
     }
 }

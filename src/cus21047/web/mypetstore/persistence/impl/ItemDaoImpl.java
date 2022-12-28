@@ -14,13 +14,13 @@ import java.util.Map;
 
 public class ItemDaoImpl implements ItemDao {
     private static final String getItemListByProductString =
-            "SELECT I.ITEMID,LISTPRICE,UNITCOST,SUPPLIER AS supplierId,I.PRODUCTID AS productId,NAME AS productName,DESCN AS productDescription,CATEGORY AS categoryId,STATUS,ATTR1 AS attribute1,ATTR2 AS attribute2,ATTR3 AS attribute3,ATTR4 AS attribute4,ATTR5 AS attribute5 FROM ITEM I, PRODUCT P WHERE P.PRODUCTID = I.PRODUCTID AND I.PRODUCTID = ?";
+            "SELECT I.ITEMID,LISTPRICE,UNITCOST,SUPPLIER AS supplierId,I.PRODUCTID AS productId,NAME AS productName,DESCN AS productDescription,CATEGORY AS categoryId,STATUS,ATTR1 AS attribute1,ATTR2 AS attribute2,ATTR3 AS attribute3,ATTR4 AS attribute4,ATTR5 AS attribute5,descnn FROM ITEM I, PRODUCT P WHERE P.PRODUCTID = I.PRODUCTID AND I.PRODUCTID = ?";
 
     private static final String getItemString =
             "select I.ITEMID,LISTPRICE,UNITCOST,SUPPLIER AS supplierId,I.PRODUCTID AS productId,NAME AS productName," +
                     "DESCN AS productDescription,CATEGORY AS CategoryId,STATUS," +
                     "ATTR1 AS attribute1,ATTR2 AS attribute2,ATTR3 AS attribute3,ATTR4 AS attribute4,ATTR5 AS attribute5," +
-                    "QTY AS quantity from ITEM I, INVENTORY V, PRODUCT P where P.PRODUCTID = I.PRODUCTID and I.ITEMID = V.ITEMID and I.ITEMID=?";
+                    "QTY AS quantity,descnn from ITEM I, INVENTORY V, PRODUCT P where P.PRODUCTID = I.PRODUCTID and I.ITEMID = V.ITEMID and I.ITEMID=?";
 
     private static final String getInventoryQuantityString =
             "SELECT QTY AS QUANTITY FROM INVENTORY WHERE ITEMID = ?";
@@ -92,6 +92,7 @@ public class ItemDaoImpl implements ItemDao {
                 product.setName(resultSet.getString(6));
                 product.setDescription(resultSet.getString(7));
                 product.setCategoryId(resultSet.getString(8));
+                product.setDesc(resultSet.getString(15));
                 item.setProduct(product);
                 item.setStatus(resultSet.getString(9));
                 item.setAttribute1(resultSet.getString(10));
@@ -131,6 +132,7 @@ public class ItemDaoImpl implements ItemDao {
                 product.setName(resultSet.getString(6));
                 product.setDescription(resultSet.getString(7));
                 product.setCategoryId(resultSet.getString(8));
+                product.setDesc(resultSet.getString(16));
                 item.setProduct(product);
                 item.setStatus(resultSet.getString(9));
                 item.setAttribute1(resultSet.getString(10));
@@ -149,4 +151,10 @@ public class ItemDaoImpl implements ItemDao {
         }
         return item;
     }
+
+//    public static void main(String[] args) {
+//        ItemDao itemDao = new ItemDaoImpl();
+//        List<Item> items =itemDao.getItemListByProduct("FL-DSH-01");
+//        System.out.println();
+//    }
 }

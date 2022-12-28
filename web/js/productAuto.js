@@ -5,7 +5,7 @@ $(function (){
         if(keyword!==''&&keyword!==null&&keyword.length!==0){
         $.ajax({
             type:'GET',
-            url :'http://localhost:8080/demo_Web_exploded/productAuto?keyword='+keyword,
+            url :'http://localhost:8080/MyPetStore_war_exploded/productAuto?keyword='+keyword,
             success :function (data){
                     console.log(data);
                     var productListHTML='';
@@ -37,7 +37,7 @@ $(function (){
             console.log(productId);
             $('#productAutoComplete').hide();
             $('#keyword').var('');
-            window.location.herf='http://localhost:8080/demo_Web_exploded/productForm?productId='+productId;
+            window.location.herf='http://localhost:8080/MyPetStore_war_exploded/productForm?productId='+productId;
         });
         $('#productAutoComplete').on('mouseleave',function (){
             $(this).hide();

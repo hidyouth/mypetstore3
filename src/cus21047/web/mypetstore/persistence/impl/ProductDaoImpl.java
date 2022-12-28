@@ -13,11 +13,11 @@ import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
     private static final String getProductListByCategoryString =
-            "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId FROM PRODUCT WHERE CATEGORY=?";
+            "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId,descnn FROM PRODUCT WHERE CATEGORY=?";
     private static final String getProductString =
-            "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId FROM PRODUCT WHERE PRODUCTID = ?";
+            "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId,descnn FROM PRODUCT WHERE PRODUCTID = ?";
     private static final String searchProductListString =
-            "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId from PRODUCT WHERE lower(name) like ?";
+            "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId,descnn from PRODUCT WHERE lower(name) like ?";
 
     @Override
     public List<Product> getProductListByCategory(String categoryId) {
@@ -34,6 +34,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(resultSet.getString(2));
                 product.setDescription(resultSet.getString(3));
                 product.setCategoryId(resultSet.getString(4));
+                product.setDesc(resultSet.getString(5));
                 products.add(product);
             }
             DBUtil.closeResultSet(resultSet);
@@ -60,6 +61,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(resultSet.getString(2));
                 product.setDescription(resultSet.getString(3));
                 product.setCategoryId(resultSet.getString(4));
+                product.setDesc(resultSet.getString(5));
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(pStatement);
@@ -86,6 +88,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(resultSet.getString(2));
                 product.setDescription(resultSet.getString(3));
                 product.setCategoryId(resultSet.getString(4));
+                product.setDesc(resultSet.getString(5));
                 productList.add(product);
             }
             DBUtil.closeResultSet(resultSet);
@@ -98,12 +101,5 @@ public class ProductDaoImpl implements ProductDao {
         return productList;
     }
 
-    public static void main(String[] args) {
-        ProductDao p=new ProductDaoImpl();
-        List<Product> s= p.searchProductList("a");
-        System.out.println(s);
 
-    }
 }
-
-

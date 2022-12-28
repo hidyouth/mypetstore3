@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");
         this.VerificationCode = req.getParameter("VerificationCode");
-        this.Verification = req.getParameter("Verification");
+        this.Verification = (String) req.getSession().getAttribute("check_session");
         //校验用户输入的正确性
         if(!validate()){
             req.setAttribute("loginMsg",loginMsg);

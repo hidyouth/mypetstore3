@@ -83,8 +83,6 @@
         <url-pattern>/loginForm</url-pattern>
     </servlet-mapping>
 
-
-
     <servlet>
         <servlet-name>ProductAutoCompleteServlet</servlet-name>
         <servlet-class>cus21047.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
@@ -93,10 +91,6 @@
         <servlet-name>ProductAutoCompleteServlet</servlet-name>
         <url-pattern>/productAuto</url-pattern>
     </servlet-mapping>
-
-
-
-
 
 
     <servlet>
@@ -232,6 +226,24 @@
     <servlet-mapping>
         <servlet-name>ProductInfoServlet</servlet-name>
         <url-pattern>/ProductInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ItemTypeChangeServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.ItemTypeChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ItemTypeChangeServlet</servlet-name>
+        <url-pattern>/ItemTypeChange</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetAddessServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.GetAddessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAddessServlet</servlet-name>
+        <url-pattern>/GetAddess</url-pattern>
     </servlet-mapping>
 
 

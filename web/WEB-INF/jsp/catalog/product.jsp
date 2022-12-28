@@ -38,21 +38,55 @@
 <%--</div>--%>
 <div class="product-box">
     <h2>You are browsing ${sessionScope.product.name} of ${sessionScope.category.name}</h2>
-    <c:forEach var="item" items="${sessionScope.itemList}">
-        <div class="product">
-            <label>Item Id:</label><a href="itemForm?itemId=${item.itemId}">${item.itemId}</a>
-            <label>Product Id:</label><label>${item.product.productId}</label>
-            <label>Description:</label><label>${item.attribute1} ${item.attribute2} ${item.attribute3}
-                ${item.attribute4} ${item.attribute5} ${sessionScope.product.name}</label>
-            <label>List Price:</label><label>${item.listPrice}</label>
-            <a href="addItemToCart?workingItemId=${item.itemId}" >
-                <button class="returnANDsubmit">Add to Cart</button>
-            </a>
+    <div class="item-show">
+        <div>
+            ${sessionScope.product.description}
         </div>
-    </c:forEach>
+        <div>
+            <h2>${sessionScope.product.name}</h2>
+            <p class="price"></p>
+            <c:forEach var="item" items="${sessionScope.itemList}">
+                <input type="radio" id="item-type" name="item" value="${item.itemId}">${item.itemId}
+            </c:forEach>
+            <p>${sessionScope.product.desc}</p>
+            <div>
+                <button class="returnANDsubmit">Add to Cart</button>
+                <button class="returnANDsubmit" id="order">Make An Order</button>
+            </div>
+        </div>
+    </div>
+<%--    <c:forEach var="item" items="${sessionScope.itemList}">--%>
+<%--        <div class="product">--%>
+<%--            <label>Item Id:</label><a href="itemForm?itemId=${item.itemId}">${item.itemId}</a>--%>
+<%--            <label>Product Id:</label><label>${item.product.productId}</label>--%>
+<%--            <label>Description:</label><label>${item.attribute1} ${item.attribute2} ${item.attribute3}--%>
+<%--                ${item.attribute4} ${item.attribute5} ${sessionScope.product.name}</label>--%>
+<%--            <label>List Price:</label><label>${item.listPrice}</label>--%>
+<%--            <a href="addItemToCart?workingItemId=${item.itemId}" >--%>
+<%--                <button class="returnANDsubmit">Add to Cart</button>--%>
+<%--            </a>--%>
+<%--        </div>--%>
+<%--    </c:forEach>--%>
     <a class="btn-box" href="categoryForm?categoryId=${sessionScope.category.categoryId}">
         <button class="returnANDsubmit">Return to ${sessionScope.category.name}</button>
     </a>
+    <script src="js/item-type.js"></script>
+</div>
+<div id="overlay">
+    <div class="popup">
+        <p class="popup_title">Order</p>
+        <p class="popup-content"><span>ProductName:</span><span class="product-name"></span></p>
+        <p class="popup-content"><span>ItemName:</span><span class="item-name"></span></p>
+        <p class="popup-content"><span>ListPrice:$</span><span class="item-price"></span></p>
+        <p class="popup-content"><span>Num:</span><input type="number" value="1" class="item-num"></p>
+        <p class="popup-content"><span>TotalPrice:$</span><span class="item-totalprice"></span></p>
+        <p class="popup_title">Address</p>
+        <div class="user-address">
+
+        </div>
+        <button value="yes">Yes</button>
+        <button value="no">No</button>
+    </div>
 </div>
 
 <%@ include file="../common/bottom.jsp" %>

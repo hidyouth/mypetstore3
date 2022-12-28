@@ -168,6 +168,109 @@ a{
 .product-show:hover{
     border: #003399 solid 5px;
 }
+.product-info{
+    display: none;
+    margin-right: 10px;
+}
+.category-box{
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.category-box .product-list{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.category-box > a{
+    text-align: center;
+}
+.item-show{
+    margin-left:15%;
+    display: flex;
+    flex-direction: row;
+}
+.item-show > div{
+    margin-right: 20px;
+}
+.item-show > div >h2{
+    color: #003399;
+}
+.price{
+    color: #FF4F00;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+}
+#item-type{
+    margin-right: 5px;
+}
+#overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    /* IE9以下不支持rgba模式 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 兼容IE8及以下 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
+    display: none;
+}
+.popup {
+    background-color: #ffffff;
+    max-width: 400px;
+    min-width: 200px;
+    border-radius: 5px;
+    margin: 100px auto;
+    text-align: center;
+}
+.popup .popup-content{
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+/* 弹出框的标题 */
+.popup_title {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: solid 1px #cccccc;
+}
+
+
+
+/* 弹出框的按钮 */
+#overlay button {
+    color: #778899;
+    width: 40%;
+    height: 40px;
+    cursor: pointer;
+    border: solid 1px #cccccc;
+    border-radius: 5px;
+    margin: 5px 10px;
+    color: #ffffff;
+    background-color: #337ab7;
+}
+.product-name{
+    color: #61666D;
+}
+.item-name{
+    color: #61666D;
+}
+.item-price{
+    color: #FF4F00;
+    font-weight: bold;
+}
+.item-totalprice{
+    color: #FF4F00;
+    font-weight: bold;
+}
+
 
 #productAutoComplete{
     background: #cccccc;

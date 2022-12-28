@@ -9,6 +9,16 @@ public class Product implements Serializable {
     private String name;
     private String description;
 
+    private String desc;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public String getProductId() {
         return productId;
     }

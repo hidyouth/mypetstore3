@@ -5,7 +5,7 @@ $(function (){
 
           $.ajax({
                type:'POST',
-               url:'http://localhost:8080/MyPetStore/updateCart',
+               url:'http://localhost:8080/MyPetStore_war_exploded/updateCart',
                data:formData,
                success:function (data){
                    var total_cost=data.substring(data.indexOf('[')+1,data.lastIndexOf(','));
