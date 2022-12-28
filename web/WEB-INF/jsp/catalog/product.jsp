@@ -50,7 +50,7 @@
             </c:forEach>
             <p>${sessionScope.product.desc}</p>
             <div>
-                <button class="returnANDsubmit">Add to Cart</button>
+                <button class="returnANDsubmit" id="cart">Add to Cart</button>
                 <button class="returnANDsubmit" id="order">Make An Order</button>
             </div>
         </div>
