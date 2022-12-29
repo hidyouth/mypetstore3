@@ -16,6 +16,25 @@ public class Cart implements Serializable {
     private BigDecimal total_cost;
     private BigDecimal listprice;
 
+    private String desc;
+    private String productid;
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public BigDecimal getListprice() {
         return listprice;
     }

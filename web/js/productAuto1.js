@@ -3,10 +3,10 @@ $(function (){
     $('#keyword').on('keyup',function (){
         var keyword=$(this).val();
         if(keyword!==''&&keyword!==null&&keyword.length!==0){
-        $.ajax({
-            type:'GET',
-            url :'http://localhost:8080/MyPetStore_war_exploded/productAuto?keyword='+keyword,
-            success :function (data){
+            $.ajax({
+                type:'GET',
+                url :'http://localhost:8080/MyPetStore_war_exploded/productAuto?keyword='+keyword,
+                success :function (data){
                     console.log(data);
                     var productListHTML='';
                     for (var i=0;i<data.length;i++){
@@ -18,12 +18,12 @@ $(function (){
                     }
                     $('#productAutoList').html(productListHTML);
                     $('#productAutoComplete').show();
-            },
-            error :function (errorMsg){
-                console.log(errorMsg);
+                },
+                error :function (errorMsg){
+                    console.log(errorMsg);
 
-            }
-        });
+                }
+            });
         }else {
             $('#productAutoComplete').hide();
         }
@@ -36,8 +36,9 @@ $(function (){
             var productId=$(this).data('productid');
             console.log(productId);
             $('#productAutoComplete').hide();
-            $('#keyword').var('');
-            window.location.herf='http://localhost:8080/MyPetStore_war_exploded/productForm?productId='+productId;
+            $('#keyword').val('');
+            // window.location.herf='http://localhost:8080/MyPetStore_war_exploded/productForm?productId='+productId;
+            window.open('http://localhost:8080/MyPetStore_war_exploded/productForm?productId='+productId);
         });
         $('#productAutoComplete').on('mouseleave',function (){
             $(this).hide();
@@ -46,16 +47,3 @@ $(function (){
 
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-

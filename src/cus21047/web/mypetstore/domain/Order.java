@@ -10,6 +10,34 @@ public class Order {
     BigDecimal total_cost;
     String address;
 
+    String productname;
+    String descn;
+    String productid;
+
+    public String getDescn() {
+        return descn;
+    }
+
+    public void setDescn(String descn) {
+        this.descn = descn;
+    }
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
     public int getId() {
         return id;
     }

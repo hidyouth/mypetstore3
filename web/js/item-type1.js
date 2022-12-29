@@ -29,6 +29,7 @@ $(function (){
                 if(data === 'No Login'){
                     let HTML = 'You haven\'t logged in, please <a href="loginForm">log in</a>';
                     $('.user-address').html(HTML);
+                    $('button[value=yes]').attr('disabled',true)
                 }else{
                     let HTML = '';
                     for(let i=0,j=data.length;i<j;i++){
@@ -41,6 +42,7 @@ $(function (){
                         HTML += data[i].province+' '+data[i].city+' '+data[i].district+' '+data[i].address+' '+data[i].name;
                     }
                     $('.user-address').html(HTML);
+                    $('button[value=yes]').attr('disabled',false);
 
                 }
             },
@@ -54,10 +56,57 @@ $(function (){
         let val = $(this).val(),price = $('.item-price').text();
         $('.item-totalprice').text(val * price);
     });
-    $('button[value=yes]').click(function (){
-
+    $('#orderform').submit(function (e){
+        e.preventDefault();
+        let $inputcheck = $('input[type=radio][name=address]:checked');
+        let proname     = $('.product-name').text(),
+            itmename    = $('.item-name').text(),
+            totalprice  = $('.item-totalprice').text(),
+            num         = $('.item-num').val(),
+            address     = $inputcheck.data('province')+','+$inputcheck.data('city')+','+$inputcheck.data('district')+','+$inputcheck.data('address')+','+$inputcheck.data('name');
+        let postData = 'productName='+proname+'&itemId='+itmename+'&totalprice='+totalprice+'&num='+num+'&address='+address;
+        console.log(postData);
+        $.ajax({
+            type    :'POST',
+            url     :'http://localhost:8080/MyPetStore_war_exploded/NewOrder',
+            data    : postData,
+            success :function (data){
+                if(data === 'success'){
+                    $('#overlay').hide();
+                    alert('The order was successfully added');
+                }
+            },
+            error   :function (errorMsg){
+                console.log(errorMsg);
+            }
+        });
     });
     $('button[value=no]').click(function (){
         $('#overlay').hide();
+    });
+    $('#cart').click(function (){
+        let itemid = $('input[type=radio][name=item]:checked').val();
+        if(itemid === null ||itemid.length === 0){
+            alert('please choose itemId!');
+        }else{
+            $.ajax({
+                type    :'GET',
+                url     :'http://localhost:8080/MyPetStore_war_exploded/addItemToCart?workingItemId='+itemid,
+                success :function (data){
+                    if(data === 'No Login'){
+                        alert('You haven\'t logged in, please log in');
+                        window.open('http://localhost:8080/MyPetStore_war_exploded/loginForm');
+                    }else if(data === 'success'){
+                        alert('The item was successfully added to the cart');
+                    }else if(data === 'Exist'){
+                        alert('The item already exists in the cart');
+                    }
+                },
+                error   :function (errorMsg){
+                    console.log(errorMsg);
+                }
+
+            })
+        }
     });
 })

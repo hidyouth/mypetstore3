@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface OrderDao {
-    void addOrder(String username, String itemId, int num, BigDecimal total_cost,String adress);
+    void addOrder(String username, String itemId, int num, BigDecimal total_cost,String adress,String productname,String descn,String peoductid);
 
     List<Order> getOrderList(String username);
 

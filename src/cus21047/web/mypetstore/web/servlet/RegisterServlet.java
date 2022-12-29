@@ -41,24 +41,11 @@ public class RegisterServlet extends HttpServlet {
         this.password = req.getParameter("password");
         this.repeatpassword = req.getParameter("repeatpassword");
         this.email = req.getParameter("email");
-        this.firstName = req.getParameter("firstname");
-        this.lastName = req.getParameter("lastname");
-        this.status = req.getParameter("status");
-        this.address1 = req.getParameter("address1");
-        this.address2 = req.getParameter("address2");
-        this.city = req.getParameter("city");
-        this.state = req.getParameter("state");
-        this.zip = req.getParameter("zip");
-        this.country = req.getParameter("country");
         this.phone = req.getParameter("phone");
 
 
-        if(!this.validate()){
-            req.setAttribute("registerMsg",this.registerMsg);
-            req.getRequestDispatcher(REGISTER_FORM).forward(req,resp);
-        }else{
-            Account account = accountService.getAccountByUsername(username);
-            if(account == null){
+
+
                 Account registerUser =  new Account();
                 registerUser.setUsername(this.username);
                 registerUser.setPassword(this.password);
@@ -76,16 +63,6 @@ public class RegisterServlet extends HttpServlet {
                 accountService.insterAccount(registerUser);
                 accountService.insterSingon(registerUser);
                 req.getRequestDispatcher(LOGIN_FORM).forward(req,resp);
-            }else{
-                this.registerMsg = "用户名已存在";
-                req.setAttribute("registerMsg",this.registerMsg);
-                req.getRequestDispatcher(REGISTER_FORM).forward(req,resp);
-
-            }
-
-
-
-        }
 
     }
     private boolean validate(){

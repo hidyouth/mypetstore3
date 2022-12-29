@@ -20,7 +20,7 @@ public class CartDaoImpl implements CartDao {
 
     private static final String GetCart = "SELECT * FROM cart WHERE username=? and itemId= ?";
 
-    private static final String AddCart = "insert INTO cart(username,itemId,productId,num,listprice,total_cost) VALUES(?,?,?,?,?,?)" ;
+    private static final String AddCart = "insert INTO cart(username,descn,itemId,productName,num,listprice,total_cost,productId) VALUES(?,?,?,?,?,?,?,?)" ;
 
     private static final String DeleteCart = "DELETE FROM cart WHERE username= ? and itemId= ?";
 
@@ -40,11 +40,13 @@ public class CartDaoImpl implements CartDao {
             while (resultSet.next()) {
                 Cart cart = new Cart();
                 cart.setUsername(resultSet.getString(1));
-                cart.setItemId(resultSet.getString(2));
-                cart.setProductId(resultSet.getString(3));
-                cart.setNum(resultSet.getInt(4));
-                cart.setListprice(resultSet.getBigDecimal(5));
-                cart.setTotal_cost(resultSet.getBigDecimal(6));
+                cart.setDesc(resultSet.getString(2));
+                cart.setItemId(resultSet.getString(3));
+                cart.setProductId(resultSet.getString(4));
+                cart.setNum(resultSet.getInt(5));
+                cart.setListprice(resultSet.getBigDecimal(6));
+                cart.setTotal_cost(resultSet.getBigDecimal(7));
+                cart.setProductid(resultSet.getString(8));
                 cartList.add(cart);
 
             }
@@ -70,11 +72,13 @@ public class CartDaoImpl implements CartDao {
             while (resultSet.next()) {
                 cart = new Cart();
                 cart.setUsername(resultSet.getString(1));
-                cart.setItemId(resultSet.getString(2));
-                cart.setProductId(resultSet.getString(3));
-                cart.setNum(resultSet.getInt(4));
-                cart.setTotal_cost(resultSet.getBigDecimal(6));
-                cart.setListprice(resultSet.getBigDecimal(5));
+                cart.setDesc(resultSet.getString(2));
+                cart.setItemId(resultSet.getString(3));
+                cart.setProductId(resultSet.getString(4));
+                cart.setNum(resultSet.getInt(5));
+                cart.setListprice(resultSet.getBigDecimal(6));
+                cart.setTotal_cost(resultSet.getBigDecimal(7));
+                cart.setProductid(resultSet.getString(8));
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closeStatement(pStatement);
@@ -86,16 +90,18 @@ public class CartDaoImpl implements CartDao {
     }
 
     @Override
-    public void InsterToCart(String itemId, String username, String productId, BigDecimal listprice,BigDecimal totalcost) {
+    public void InsterToCart(String itemId, String descn, String username, String productId, BigDecimal listprice,BigDecimal totalcost,String producid) {
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(AddCart);
             pStatement.setString(1,username);
-            pStatement.setString(2,itemId);
-            pStatement.setString(3,productId);
-            pStatement.setInt(4,1);
-            pStatement.setBigDecimal(5,listprice);
+            pStatement.setString(2,descn);
+            pStatement.setString(3,itemId);
+            pStatement.setString(4,productId);
+            pStatement.setInt(5,1);
             pStatement.setBigDecimal(6,listprice);
+            pStatement.setBigDecimal(7,listprice);
+            pStatement.setString(8,producid);
             pStatement.execute();
 
             DBUtil.closeStatement(pStatement);

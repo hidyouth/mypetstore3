@@ -11,7 +11,7 @@ public interface CartDao {
 
     Cart getCart(String itemId,String username);
 
-    void InsterToCart(String itemId, String username, String productId, BigDecimal lastprice,BigDecimal totalcost);
+    void InsterToCart(String itemId, String descn, String username, String productId, BigDecimal lastprice,BigDecimal totalcost,String productid);
 
     void DeleteCart(String itemId,String username);
 

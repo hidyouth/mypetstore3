@@ -30,8 +30,8 @@ public class CartService  {
         return cartDao.getCart(itemId,username);
     }
 
-    public void addCart(String itemId, String username, String productId,BigDecimal listprice ,BigDecimal totalcost){
-       cartDao.InsterToCart(itemId,username,productId,listprice,totalcost);
+    public void addCart(String itemId,String desc, String username, String productId,BigDecimal listprice ,BigDecimal totalcost,String productid){
+       cartDao.InsterToCart(itemId,desc,username,productId,listprice,totalcost,productid);
     }
     public void DeleteCart(String itemId, String username){
        cartDao.DeleteCart(itemId,username);

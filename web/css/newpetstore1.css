@@ -228,7 +228,7 @@ a{
     margin: 100px auto;
     text-align: center;
 }
-.popup .popup-content{
+.popup >form .popup-content{
     height: 20px;
     line-height: 20px;
     margin-top: 10px;
@@ -273,30 +273,61 @@ a{
 
 
 #productAutoComplete{
-    background: #cccccc;
+    background: #ccc;
     position: relative;
     top: 3px;
-    left: 10px;
-    width: 150px;
+    left: 0px;
+    width: 202px;
     display: none;
     z-index: 999;
+    border-radius: 0 0 8px 8px;
 }
 
 #productAutoList{
     margin: 0;
     padding: 0;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #cccc;
 }
 
 .productAutoItem{
     list-style: none;
-    height: 20px;
-    line-height: 20px;
-    font-size: 10px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
     text-align: left;
     padding-left: 5px;
-    margin-top: 3px;
-    border-bottom: 1px solid #666666;
-    color: #005e21;
+    margin-bottom: 4px;
+    overflow: hidden;
+    color: #18191C;
     cursor: pointer;
+}
+.productAutoItem:hover{
+    background: #E3E5E7;
+}
+.Cart{
+    width: 60%;
+    background: #e2e2e2;
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+    margin-top: 10px;
+    height: 80px;
+    line-height: 80px;
+}
+.Cart > img {
+    margin-right: 10px;
+    border: 3px solid #003399;
+    width: 66px;
+}
+.Cart > a{
+    margin-right: 10px;
+}
+.Cart >label{
+    margin-right: 10px;
+}
+.Cart >button{
+    position: relative;
+    top: 30px;
+    margin-right: 10px;
+    height: 20px;
 }

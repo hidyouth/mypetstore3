@@ -14,6 +14,7 @@
   <meta charset="UTF-8">
 
   <title>Register</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <link rel="stylesheet" href="css/login2.css"/>
 </head>
 <body>
@@ -23,6 +24,7 @@
     <c:if test="${requestScope.registerMsg != null}">
       <p><font color=white>${requestScope.registerMsg}</font></p>
     </c:if>
+      <p><font color=white id="feedback"></font></p>
   <div class="reg-box">
     <div class="reg-box1">
         <div class="input-box">
@@ -41,47 +43,10 @@
           <label>邮箱</label>
           <input type="text" name="email"/>
         </div>
-        <div class="input-box">
-          <label>地址1</label>
-          <input type="text" name="address1"/>
-        </div>
-        <div class="input-box">
-          <label>地址2</label>
-          <input type="text" name="address2"/>
-        </div>
-        <div class="input-box">
-          <label>姓</label>
-          <input type="text" name="firstname"/>
-        </div>
-    </div>
-      <div class="reg-box1">
-        <div class="input-box">
-          <label>名</label>
-          <input type="text" name="lastname"/>
-        </div>
-        <div class="input-box">
-          <label>国家</label>
-          <input type="text" name="country"/>
-        </div>
-        <div class="input-box">
-          <label>城市</label>
-          <input type="text" name="city"/>
-        </div>
-        <div class="input-box">
-          <label>州</label>
-          <input type="text" name="state"/>
-        </div>
+
         <div class="input-box">
           <label>电话</label>
           <input type="text" name="phone"/>
-        </div>
-        <div class="input-box">
-          <label>邮政编码</label>
-          <input type="text" name="zip"/>
-        </div>
-        <div class="input-box">
-          <label>职业</label>
-          <input type="text" name="status"/>
         </div>
       </div>
   </div>
@@ -100,5 +65,6 @@
 
 
 </div>
+<script src="js/check-username.js"></script>
 </body>
 </html>

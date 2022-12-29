@@ -16,18 +16,18 @@
             <c:if test="${sessionScope.cartList != null}">
                 <c:forEach var="cart" items="${sessionScope.cartList}" >
                     <div class="Cart">
-                        <a href="itemForm?itemId=${cart.itemId}" >${cart.itemId}</a>
-                        <label>${cart.productId}</label>
+                            ${cart.desc}
+                        <label id="productname">${cart.productId}</label>
+                        <a href="productForm?productId=${cart.productid}" id="itemname">${cart.itemId}</a>
                         <label id="cart_num">num:${cart.num}</label>
-                        Update num:
+                        <label>Update num:</label>
                         <form action="updateCart" method="post" id="cartContent">
                             <input type="hidden" name="itemId" value="${cart.itemId}">
                             <input type="text" name="num" id="cartNum" value="${cart.num}"/>
                         </form>
-
-                        <label id="total_cost">$: ${cart.total_cost}</label>
-                        <a href="removeCartItem?workingItemId=${cart.itemId}" ><button class="remove">Remove</button></a>
-                        <a href="newOrderForm?itemId=${cart.itemId}" ><button class="returnANDsubmit">Place an order</button></a>
+                        <label id="total_cost" data-totalcost="${cart.total_cost}">$: ${cart.total_cost}</label>
+                        <button id="remove">Remove</button>
+                        <button  id="order">Place an order</button>
 
                     </div>
                 </c:forEach>
@@ -37,6 +37,7 @@
 
             </c:if>
         </c:if>
+
 
 
     <%--                                    <tr>--%>
@@ -119,6 +120,25 @@
 <%--            <a href="newOrderForm" class="Button">Proceed to Checkout</a>--%>
 <%--        </c:if>--%>
     </div>
+<div id="overlay">
+    <div class="popup">
+        <form action="NewOrder" method="post" id="orderform">
+            <p class="popup_title">Order</p>
+            <p class="popup-content"><span>ProductName:</span><span class="product-name" ></span></p>
+            <p class="popup-content"><span>ItemName:</span><span class="item-name" ></span></p>
+            <p class="popup-content"><span>ListPrice:$</span><span class="item-price"></span></p>
+            <p class="popup-content"><span>Num:</span><input type="number" value="1" class="item-num"></p>
+            <p class="popup-content"><span>TotalPrice:$</span><span class="item-totalprice"></span></p>
+            <p class="popup_title">Address</p>
+            <div class="user-address">
+
+            </div>
+            <button value="yes" type="submit">Yes</button>
+        </form>
+            <button value="no">No</button>
+
+    </div>
+</div>
 
    <%-- <div id="MyList">
         <c:if test="${sessionScope.loginAccount != null}">
@@ -128,7 +148,7 @@
         </c:if>
     </div>--%>
 
-<script src="./js/cart-update.js"></script>
+<script src="./js/cart-update1.js"></script>
 
 
 <%@ include file="../common/bottom.jsp"%>

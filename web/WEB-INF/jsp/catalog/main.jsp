@@ -78,7 +78,7 @@
 
     <div class="category">
         <p>FISH</p>
-        <a href="categoryForm?categoryId=CATS">View more....</a>
+        <a href="categoryForm?categoryId=FISH">View more....</a>
     </div>
     <div class="product">
 

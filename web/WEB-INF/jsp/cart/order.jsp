@@ -16,7 +16,8 @@
         <c:if test="${sessionScope.orderList != null}">
             <c:forEach var="order" items="${sessionScope.orderList}">
                 <div class="Cart">
-                    <a href="itemForm?itemId=${order.itemId}">${order.itemId}</a>
+                    ${order.descn}
+                    <a href="productForm?productId=${order.productid}">${order.itemId}</a>
                     <label>num:</label>${order.num}
                     <label>$: ${order.total_cost}</label>
                     <label>address:${order.address}</label>

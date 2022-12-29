@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PetStore</title>
-    <link rel="stylesheet" href="css/newpetstore.css"/>
+    <link rel="stylesheet" href="css/newpetstore1.css"/>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/377da027eb.js" crossorigin="anonymous"></script>
 </head>

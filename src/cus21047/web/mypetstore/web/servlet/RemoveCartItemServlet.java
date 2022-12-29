@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class RemoveCartItemServlet extends HttpServlet {
 
@@ -26,12 +27,11 @@ public class RemoveCartItemServlet extends HttpServlet {
         Account account = (Account)session.getAttribute("loginAccount");
 
         String workingItemId = req.getParameter("workingItemId");
-
-
         cartDao.DeleteCart(workingItemId,account.getUsername());
+        resp.setContentType("text/plain");
+        PrintWriter out = resp.getWriter();
+        out.print("success");
 
-
-        req.getRequestDispatcher(CART_FORM).forward(req, resp);
 
     }
 }

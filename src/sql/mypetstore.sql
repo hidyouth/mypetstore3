@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 28/12/2022 14:14:32
+ Date: 29/12/2022 21:18:09
 */
 
 SET NAMES utf8mb4;
@@ -24,15 +24,15 @@ DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account`  (
   `userid` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `email` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `firstname` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `lastname` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `firstname` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `lastname` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `status` varchar(2) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
-  `addr1` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `addr1` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `addr2` varchar(40) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
-  `city` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `state` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `zip` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `country` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `city` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `state` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `zip` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `country` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `phone` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   PRIMARY KEY (`userid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_bin ROW_FORMAT = Dynamic;
@@ -44,6 +44,7 @@ INSERT INTO `account` VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 
 INSERT INTO `account` VALUES ('2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2');
 INSERT INTO `account` VALUES ('3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
 INSERT INTO `account` VALUES ('ACID', 'acid@yourdomain.com', 'ABC', 'XYX', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA', '555-555-5555');
+INSERT INTO `account` VALUES ('CHS', '1198451301@qq.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '15560125287');
 INSERT INTO `account` VALUES ('j2ee', 'yourname@yourdomain.com', 'ABC', 'XY', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA', '555-555-5555');
 
 -- ----------------------------
@@ -91,19 +92,18 @@ INSERT INTO `bannerdata` VALUES ('REPTILES', '<image src=\"images/banner_reptile
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart`  (
   `username` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `descn` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `itemId` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
-  `productId` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `productName` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `num` int NULL DEFAULT NULL,
   `listprice` decimal(10, 2) NULL DEFAULT NULL,
-  `total_cost` decimal(10, 2) NULL DEFAULT NULL
+  `total_cost` decimal(10, 2) NULL DEFAULT NULL,
+  `productId` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
-INSERT INTO `cart` VALUES ('1', 'EST-4', 'FI-FW-01', 1, 18.50, 18.50);
-INSERT INTO `cart` VALUES ('j2ee', 'EST-4', 'FI-FW-01', 2, 18.50, 37.00);
-INSERT INTO `cart` VALUES ('2', 'EST-6', 'K9-BD-01', 2, 18.50, 37.00);
 
 -- ----------------------------
 -- Table structure for category
@@ -403,6 +403,135 @@ INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-1
 INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 12:24:17 CST', 0);
 INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 12:44:52 CST', 0);
 INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 14:00:01 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 15:52:08 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 15:52:10 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 15:59:33 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 15:59:36 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:15:27 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 16:15:29 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 16:16:01 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:16:29 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 16:16:30 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:18:34 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 16:18:35 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:19:21 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-28 at 16:19:25 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:39:04 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 16:39:06 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:39:40 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 16:39:41 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:43:47 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 16:43:49 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:51:43 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 16:51:45 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 16:59:13 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 16:59:14 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 16:59:59 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 17:05:53 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:05:54 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:08:05 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 17:08:16 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:08:18 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 17:14:28 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:14:30 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-17 -----------------------------2022-12-28 at 17:14:36 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 17:15:45 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:15:46 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-17 -----------------------------2022-12-28 at 17:15:49 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-17 -----------------------------2022-12-28 at 17:16:54 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:20:14 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-17 -----------------------------2022-12-28 at 17:20:14 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-28 at 17:20:26 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-28 at 17:20:27 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-17 -----------------------------2022-12-28 at 17:20:39 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 14:37:46 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 14:37:48 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-16 -----------------------------2022-12-29 at 14:37:50 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-16 -----------------------------2022-12-29 at 14:37:51 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-16 -----------------------------2022-12-29 at 14:37:52 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-16 -----------------------------2022-12-29 at 14:41:53 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 14:42:11 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 14:42:12 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-16 -----------------------------2022-12-29 at 14:42:14 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 15:23:15 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 15:33:29 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-29 at 15:33:31 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-14 -----------------------------2022-12-29 at 15:33:34 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:15:40 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:19:52 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:21:43 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:23:01 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:23:42 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:26:03 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:29:21 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:31:26 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:34:05 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:44:26 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:48:46 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:55:02 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-29 at 16:55:04 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 16:55:16 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-16 -----------------------------2022-12-29 at 16:55:17 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 16:57:35 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 16:57:39 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 16:58:34 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:00:50 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 17:00:52 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:04:50 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DLH-02 -----------------------------2022-12-29 at 17:04:52 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-17 -----------------------------2022-12-29 at 17:04:53 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', 'EST-17 -----------------------------2022-12-29 at 17:05:30 CST', 1);
+INSERT INTO `record` VALUES ('j2ee', 'EST-17 -----------------------------2022-12-29 at 17:05:35 CST', 1);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:08:51 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:11:07 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:12:39 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:15:03 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:15:42 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:16:22 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:17:32 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:24:59 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:25:56 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 17:32:44 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:00:22 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:05:57 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:08:41 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-14 -----------------------------2022-12-29 at 19:09:13 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:13:39 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-14 -----------------------------2022-12-29 at 19:13:48 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:15:06 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:17:05 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-14 -----------------------------2022-12-29 at 19:17:57 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-14 -----------------------------2022-12-29 at 19:18:40 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:20:00 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:35:54 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 19:37:03 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-16 -----------------------------2022-12-29 at 19:37:13 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 20:04:13 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-29 at 20:04:20 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-14 -----------------------------2022-12-29 at 20:04:22 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-14 -----------------------------2022-12-29 at 20:04:26 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 20:06:17 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-29 at 20:06:19 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-15 -----------------------------2022-12-29 at 20:06:22 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-15 -----------------------------2022-12-29 at 20:06:26 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-15 -----------------------------2022-12-29 at 20:06:29 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-29 at 20:08:49 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-15 -----------------------------2022-12-29 at 20:10:47 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '登录 -----------------------------2022-12-29 at 20:11:01 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览FL-DSH-01 -----------------------------2022-12-29 at 20:11:07 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-14 -----------------------------2022-12-29 at 20:11:12 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-14 -----------------------------2022-12-29 at 20:12:23 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '加入购物车EST-15 -----------------------------2022-12-29 at 20:12:32 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '下单EST-15 -----------------------------2022-12-29 at 20:13:58 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览REPTILES -----------------------------2022-12-29 at 20:14:12 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览CATS -----------------------------2022-12-29 at 20:14:16 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览BIRDS -----------------------------2022-12-29 at 20:14:18 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览DOGS -----------------------------2022-12-29 at 20:14:23 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览K9-PO-02 -----------------------------2022-12-29 at 20:14:55 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览K9-RT-02 -----------------------------2022-12-29 at 20:14:59 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览BIRDS -----------------------------2022-12-29 at 20:15:07 CST', 0);
+INSERT INTO `record` VALUES ('j2ee', '浏览CATS -----------------------------2022-12-29 at 20:15:11 CST', 0);
+INSERT INTO `record` VALUES ('CHS', '登录 -----------------------------2022-12-29 at 21:12:57 CST', 0);
 
 -- ----------------------------
 -- Table structure for sequence
@@ -436,6 +565,7 @@ INSERT INTO `signon` VALUES ('1', '1');
 INSERT INTO `signon` VALUES ('2', '2');
 INSERT INTO `signon` VALUES ('3', '3');
 INSERT INTO `signon` VALUES ('ACID', 'ACID');
+INSERT INTO `signon` VALUES ('CHS', 'cuihaosen');
 INSERT INTO `signon` VALUES ('j2ee', 'j2ee');
 
 -- ----------------------------
@@ -468,17 +598,19 @@ DROP TABLE IF EXISTS `userorder`;
 CREATE TABLE `userorder`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `descn` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `productid` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `itemId` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   `num` int NULL DEFAULT NULL,
   `total_cost` decimal(10, 2) NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
+  `productname` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of userorder
 -- ----------------------------
-INSERT INTO `userorder` VALUES (1, 'j2ee', 'EST-3', 1, 37.00, '901 San Antonio Road');
-INSERT INTO `userorder` VALUES (2, '3', 'EST-4', 3, 37.00, '3');
+INSERT INTO `userorder` VALUES (12, 'j2ee', '<image src=\"image/manx.jpg\">', 'FL-DSH-01', 'EST-15', 2, 47.00, 'Hunan,Changsha,Yuhua,Railway College,Cui Haosen', 'Manx');
 
 SET FOREIGN_KEY_CHECKS = 1;

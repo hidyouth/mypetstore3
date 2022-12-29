@@ -14,6 +14,6 @@
 
 </div>
 <script src="js/pro-info1.js"></script>
-<script src="js/productAuto.js"></script>
+<script src="js/productAuto1.js"></script>
 </body>
 </html>

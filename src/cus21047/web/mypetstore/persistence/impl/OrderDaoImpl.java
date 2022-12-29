@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
-    private static final String AddOrder = "insert INTO userorder(username,itemId,num,total_cost,address) VALUES(?,?,?,?,?)";
+    private static final String AddOrder = "insert INTO userorder(username,descn,productid,itemId,num,total_cost,address,productname) VALUES(?,?,?,?,?,?,?,?)";
 
     private static final String GetOrderList = "SELECT * FROM userorder WHERE username = ?";
 
     private static final String DeleteOrder = "DELETE FROM userorder WHERE id=?";
 
     @Override
-    public void addOrder(String username, String itemId, int num, BigDecimal listprice, String adress) {
+    public void addOrder(String username, String itemId, int num, BigDecimal listprice, String adress,String producrname,String descn,String productid) {
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(AddOrder);
@@ -31,10 +31,13 @@ public class OrderDaoImpl implements OrderDao {
             }
 
             pStatement.setString(1,username);
-            pStatement.setString(2,itemId);
-            pStatement.setInt(3,num);
-            pStatement.setBigDecimal(4,totalcost);
-            pStatement.setString(5,adress);
+            pStatement.setString(2,descn);
+            pStatement.setString(3,productid);
+            pStatement.setString(4,itemId);
+            pStatement.setInt(5,num);
+            pStatement.setBigDecimal(6,listprice);
+            pStatement.setString(7,adress);
+            pStatement.setString(8,producrname);
             pStatement.execute();
 
             DBUtil.closeStatement(pStatement);
@@ -55,10 +58,14 @@ public class OrderDaoImpl implements OrderDao {
             ResultSet resultSet = pStatement.executeQuery();
             while (resultSet.next()) {
                 Order order = new Order();
-                order.setItemId(resultSet.getString(3));
-                order.setNum(resultSet.getInt(4));
-                order.setTotal_cost(resultSet.getBigDecimal(5));
-                order.setAddress(resultSet.getString(6));
+                order.setId(resultSet.getInt(1));
+                order.setDescn(resultSet.getString(3));
+                order.setProductid(resultSet.getString(4));
+                order.setItemId(resultSet.getString(5));
+                order.setNum(resultSet.getInt(6));
+                order.setTotal_cost(resultSet.getBigDecimal(7));
+                order.setAddress(resultSet.getString(8));
+                order.setProductname(resultSet.getString(9));
                 orderList.add(order);
 
             }

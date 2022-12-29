@@ -70,24 +70,27 @@
     <a class="btn-box" href="categoryForm?categoryId=${sessionScope.category.categoryId}">
         <button class="returnANDsubmit">Return to ${sessionScope.category.name}</button>
     </a>
-    <script src="js/item-type.js"></script>
+
 </div>
 <div id="overlay">
     <div class="popup">
-        <p class="popup_title">Order</p>
-        <p class="popup-content"><span>ProductName:</span><span class="product-name"></span></p>
-        <p class="popup-content"><span>ItemName:</span><span class="item-name"></span></p>
-        <p class="popup-content"><span>ListPrice:$</span><span class="item-price"></span></p>
-        <p class="popup-content"><span>Num:</span><input type="number" value="1" class="item-num"></p>
-        <p class="popup-content"><span>TotalPrice:$</span><span class="item-totalprice"></span></p>
-        <p class="popup_title">Address</p>
-        <div class="user-address">
+        <form action="NewOrder" method="post" id="orderform">
+            <p class="popup_title">Order</p>
+            <p class="popup-content"><span>ProductName:</span><span class="product-name" ></span></p>
+            <p class="popup-content"><span>ItemName:</span><span class="item-name" ></span></p>
+            <p class="popup-content"><span>ListPrice:$</span><span class="item-price"></span></p>
+            <p class="popup-content"><span>Num:</span><input type="number" value="1" class="item-num"></p>
+            <p class="popup-content"><span>TotalPrice:$</span><span class="item-totalprice"></span></p>
+            <p class="popup_title">Address</p>
+            <div class="user-address">
 
-        </div>
-        <button value="yes">Yes</button>
+            </div>
+            <button value="yes" type="submit">Yes</button>
+        </form>
         <button value="no">No</button>
     </div>
 </div>
+<script src="js/item-type1.js"></script>
 
 <%@ include file="../common/bottom.jsp" %>
 

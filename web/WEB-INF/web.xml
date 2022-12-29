@@ -246,5 +246,14 @@
         <url-pattern>/GetAddess</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CheckRegisterServlet</servlet-name>
+        <servlet-class>cus21047.web.mypetstore.web.servlet.CheckRegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckRegisterServlet</servlet-name>
+        <url-pattern>/CheckRegister</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

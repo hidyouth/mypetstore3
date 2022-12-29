@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,26 +36,34 @@ public class AddItemToCartServlet extends HttpServlet {
 
 
         if(loginAccount == null){
-            resp.sendRedirect("loginForm");
+            resp.setContentType("text/plain");
+            PrintWriter out = resp.getWriter();
+            out.print("No Login");
         }else{
             /*HttpSession session = req.getSession();
             session.setAttribute("loginAccount",loginAccount);*/
             String username = loginAccount.getUsername();
             Cart cart = cartService.getCart(workingItemId,username);
             Item item = itemDao.getItem(workingItemId);
-            String productId = item.getProduct().getProductId();
+            String productId = item.getProduct().getName();
+            String desc = item.getProduct().getDescription();
             BigDecimal listprice = item.getListPrice();
             BigDecimal total_cost = item.getListPrice();
+            String productid = item.getProduct().getProductId();
             //如果购物车中没有这个商品，就加到购物车中
             if(cart == null){
-                cartService.addCart(workingItemId,username,productId,listprice,total_cost);
+                cartService.addCart(workingItemId,desc,username,productId,listprice,total_cost,productid);
                 RecordDao userService = new RecordDaoImpl();
                 SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
                 Date date = new Date(System.currentTimeMillis());
                 userService.InsertToRecord(loginAccount.getUsername(),"加入购物车"+workingItemId+" -----------------------------"+formatter.format(date),0);
-                resp.sendRedirect("cartForm");
+                resp.setContentType("text/plain");
+                PrintWriter out = resp.getWriter();
+                out.print("success");
             }else{
-                resp.sendRedirect("cartForm");
+                resp.setContentType("text/plain");
+                PrintWriter out = resp.getWriter();
+                out.print("Exist");
             }
         }
 
