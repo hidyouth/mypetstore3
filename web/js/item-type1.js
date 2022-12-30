@@ -86,7 +86,7 @@ $(function (){
     });
     $('#cart').click(function (){
         let itemid = $('input[type=radio][name=item]:checked').val();
-        if(itemid === null ||itemid.length === 0){
+        if(itemid === undefined){
             alert('please choose itemId!');
         }else{
             $.ajax({
